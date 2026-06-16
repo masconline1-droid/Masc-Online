@@ -623,7 +623,7 @@
 
           <div class="fcard"><div class="fnum"><div class="fnumc">1</div><div class="fnumt">Datos del expediente</div></div>
             <div class="frow">
-              <div><label class="lbl">ID Expediente</label><input class="inp" id="f-exp-id" value="EXP-2026-015"></div>
+              <div><label class="lbl">ID Expediente</label><input class="inp" id="f-exp-id" value="EXP-2026-015 [Ejemplo]"></div>
               <div><label class="lbl">Fecha y hora</label><input class="inp" id="f-exp-fecha" value=""></div>
             </div>
             <div class="frow" style="margin-top: 10px;">
@@ -642,6 +642,19 @@
                 </div>
               </div>
             </div>
+            <div class="frow" style="margin-top: 10px;">
+              <div>
+                <label class="lbl">Correo del despacho (notificaciones)</label>
+                <input class="inp" id="f-despacho-email" value="masconline1@gmail.com" oninput="actualizarPlantillaTextos()">
+              </div>
+              <div>
+                <label class="lbl">Consulta estado del expediente</label>
+                <select class="sel" id="f-exp-estado" onchange="actualizarPlantillaTextos()">
+                  <option value="proceso">En proceso (Sólo Solicitud de mediación)</option>
+                  <option value="resultado" selected>Resultado (Solicitud + Oferta vinculante)</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="fcard"><div class="fnum"><div class="fnumc">2</div><div class="fnumt">Letrado firmante</div></div>
@@ -651,33 +664,35 @@
 
           <div class="fcard"><div class="fnum"><div class="fnumc">3</div><div class="fnumt">Solicitante (parte proponente)</div></div>
             <div class="frow"><div><label class="lbl">Intervención</label><select class="sel" id="intervencion" onchange="toggleRep(); actualizarPlantillaTextos();"><option value="rep">En representación</option><option value="propio">En nombre propio</option></select></div><div><label class="lbl">Tipo</label><select class="sel" id="f-sol-tipo" onchange="actualizarPlantillaTextos()"><option>Persona jurídica</option><option>Persona física</option></select></div></div>
-            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" id="f-sol-nombre" value="Renting Grupo Hermes S.L." oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" id="f-sol-nif" value="B-87654321"></div></div>
-            <div class="ffull"><label class="lbl">Dirección</label><input class="inp" id="f-sol-dir" value="Av. de la Constitución 22, 41004 Sevilla"></div>
-            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" id="f-rep-nombre" value="José Failde Sánchez" oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI</label><input class="inp" id="f-rep-dni" value="28.456.789-Q"></div></div></div>
+            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" id="f-sol-nombre" value="Renting Grupo Hermes S.L. [Ejemplo]" oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" id="f-sol-nif" value="B-87654321 [Ejemplo]"></div></div>
+            <div class="frow"><div><label class="lbl">Correo electrónico del solicitante</label><input class="inp" id="f-sol-email" type="email" value="proponente-ejemplo@correo.com" oninput="actualizarPlantillaTextos()"></div><div></div></div>
+            <div class="ffull"><label class="lbl">Dirección</label><input class="inp" id="f-sol-dir" value="Av. de la Constitución 22, 41004 Sevilla [Ejemplo]"></div>
+            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" id="f-rep-nombre" value="José Failde Sánchez [Ejemplo]" oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI</label><input class="inp" id="f-rep-dni" value="28.456.789-Q [Ejemplo]"></div></div></div>
           </div>
 
           <div class="fcard"><div class="fnum"><div class="fnumc">4</div><div class="fnumt">Requerido (parte reclamada)</div></div>
-            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel" id="f-req-tipo" onchange="actualizarPlantillaTextos()"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" id="f-req-nombre" value="El Bekkali" oninput="actualizarPlantillaTextos()"></div></div>
-            <div class="frow"><div><label class="lbl">DNI / NIE / NIF</label><input class="inp" id="f-req-nif" value="X-1234567-Z"></div><div><label class="lbl">Dirección</label><input class="inp" id="f-req-dir" value="Calle Asencio y Toledo 33, 41006 Sevilla"></div></div>
+            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel" id="f-req-tipo" onchange="actualizarPlantillaTextos()"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" id="f-req-nombre" value="El Bekkali [Ejemplo]" oninput="actualizarPlantillaTextos()"></div></div>
+            <div class="frow"><div><label class="lbl">DNI / NIE / NIF</label><input class="inp" id="f-req-nif" value="X-1234567-Z [Ejemplo]"></div><div><label class="lbl">Correo electrónico del requerido</label><input class="inp" id="f-req-email" type="email" value="reclamado-ejemplo@correo.com" oninput="actualizarPlantillaTextos()"></div></div>
+            <div class="ffull"><label class="lbl">Dirección</label><input class="inp" id="f-req-dir" value="Calle Asencio y Toledo 33, 41006 Sevilla [Ejemplo]"></div>
           </div>
 
           <div class="fcard" id="card-datos-especificos"><div class="fnum"><div class="fnumc">5</div><div class="fnumt">Datos específicos del local y plazos</div></div>
             <div class="frow">
-              <div><label class="lbl">Dirección del local en conflicto</label><input class="inp" id="f-local-dir" value="Calle Asencio y Toledo nº 33" oninput="actualizarPlantillaTextos()"></div>
-              <div><label class="lbl">Fecha límite de desalojo propuesta</label><input class="inp" id="f-fecha-desalojo" value="30 de junio de 2026" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Dirección del local en conflicto</label><input class="inp" id="f-local-dir" value="Calle Asencio y Toledo nº 33 [Ejemplo]" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Fecha límite de desalojo propuesta</label><input class="inp" id="f-fecha-desalojo" value="30 de junio de 2026 [Ejemplo]" oninput="actualizarPlantillaTextos()"></div>
             </div>
             <div class="frow" style="margin-top: 10px;">
-              <div><label class="lbl">Fecha de efectos de resolución contractual</label><input class="inp" id="f-fecha-resolucion" value="diciembre 2024" oninput="actualizarPlantillaTextos()"></div>
-              <div><label class="lbl">Nombre del propietario fallecido</label><input class="inp" id="f-arrendador-original" value="Don José Failde Villaraviz" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Fecha de efectos de resolución contractual</label><input class="inp" id="f-fecha-resolucion" value="diciembre 2024 [Ejemplo]" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Nombre del propietario fallecido</label><input class="inp" id="f-arrendador-original" value="Don José Failde Villaraviz [Ejemplo]" oninput="actualizarPlantillaTextos()"></div>
             </div>
             <div class="frow" style="margin-top: 10px;">
-              <div><label class="lbl">Fecha de fallecimiento</label><input class="inp" id="f-fecha-fallecimiento" value="12 de marzo de 2023" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Fecha de fallecimiento</label><input class="inp" id="f-fecha-fallecimiento" value="12 de marzo de 2023 [Ejemplo]" oninput="actualizarPlantillaTextos()"></div>
               <div></div>
             </div>
           </div>
 
           <div class="fcard"><div class="fnum"><div class="fnumc">6</div><div class="fnumt" id="lbl-conflicto">Descripción del conflicto</div></div>
-            <textarea class="ta" id="f-conflicto" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</textarea>
+            <textarea class="ta" id="f-conflicto" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33 [Ejemplo].</textarea>
           </div>
 
           <div class="fcard" id="card-antecedentes"><div class="fnum"><div class="fnumc">7</div><div class="fnumt">Antecedentes</div></div>
@@ -710,46 +725,64 @@
         <div class="preview">
           <div class="editbar"><span><i class="ti ti-edit"></i>Modo edición · campos en amarillo editables</span><span class="qtsp"><i class="ti ti-template"></i>Plantilla aplicada</span></div>
           <div class="docpaper">
-            <h2 id="r-doc-titulo">Oferta vinculante confidencial</h2>
-            <p class="ind" style="margin-top:14px;">En <span class="hl" id="r-ciudad" contenteditable="true">Sevilla</span>, a <span class="hl" id="r-fecha" contenteditable="true">9 de mayo de 2026</span>.</p>
-            <p class="ind" id="r-intro-p">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
- 
-            <span class="dsec">Partes involucradas</span>
-            <div class="partyhead">Parte reclamada:</div>
-            <div class="pl"><span id="r-req-trato">Don</span> <span class="hl" id="r-req-nombre" contenteditable="true">El Bekkali</span></div>
-            <div class="pl">Dni: <span class="hl" id="r-req-nif" contenteditable="true">X-1234567-Z</span></div>
-            <div class="pl">Dirección: <span class="hl" id="r-req-dir" contenteditable="true">Calle Asencio y Toledo 33, 41006 Sevilla</span></div>
-            <div class="partyhead" style="margin-top:8px;">Parte proponente:</div>
-            <div class="pl"><span id="r-sol-trato">Don</span> <span class="hl" id="r-sol-nombre" contenteditable="true">Renting Grupo Hermes S.L.</span></div>
-            <div class="pl" id="r-rep-block1">Representante: Don <span class="hl" id="r-rep-nombre" contenteditable="true">José Failde Sánchez</span></div>
-            <div class="pl" id="r-rep-block2">Dni: <span class="hl" id="r-rep-dni" contenteditable="true">28.456.789-Q</span></div>
-            <div class="pl">Dirección: <span class="hl" id="r-sol-dir" contenteditable="true">Av. de la Constitución 22, 41004 Sevilla</span></div>
-            <div class="partyhead" style="margin-top:8px;">Representante:</div>
-            <div class="pl">Don/Dña. <span class="hl" id="r-let-nombre">Julia García Méndez</span></div>
-            <div class="pl">Cdo <span class="hl" id="r-let-col">78.214</span> del Ilustre Colegio de Abogados de Sevilla</div>
-            <div class="pl">Dirección: <span class="hl" id="r-let-dir">Calle Sierpes 65, 1º A, 41004 Sevilla</span></div>
-            <div class="pl">Email: <span class="hl" id="r-let-email">julia.garcia@garcia-asociados.es</span></div>
-            <div class="pl">Teléfono: <span class="hl" id="r-let-tel">954 22 13 45</span></div>
- 
-            <span class="dsec" id="r-conflicto-header">Descripción del conflicto</span>
-            <p class="ind" id="r-conflicto" contenteditable="true">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
- 
-            <div id="r-antecedentes-block">
-              <span class="dsec">Antecedentes y situación arrendaticia actual</span>
-              <p contenteditable="true" id="r-antecedentes" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
+            <div id="r-solicitud-block" style="border-bottom: 2px solid var(--color-border-primary); padding-bottom: 24px; margin-bottom: 24px;">
+              <h2 style="font-size: 15px; font-weight: 700; text-align: center; color: var(--color-text-main); margin-bottom: 16px; text-transform: uppercase;">Solicitud de mediación MASC</h2>
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11.5px; color: var(--color-text-muted); background: var(--color-border-tertiary); padding: 16px; border-radius: var(--border-radius-md); margin-bottom: 16px;">
+                <div><strong>Ref Expediente:</strong> <span class="hl" id="r-sol-exp-id" contenteditable="true">EXP-2026-***</span></div>
+                <div><strong>Fecha y hora:</strong> <span class="hl" id="r-sol-exp-fecha" contenteditable="true">***</span></div>
+                <div><strong>Tipo de envío:</strong> <span id="r-sol-exp-envio">BuroFax</span></div>
+                <div><strong>Plataforma de pago:</strong> <span id="r-sol-exp-pago">Stripe (tarjeta)</span></div>
+                <div><strong>Email Solicitante:</strong> <span class="hl" id="r-sol-email" contenteditable="true">***</span></div>
+                <div><strong>Email Requerido:</strong> <span class="hl" id="r-req-email" contenteditable="true">***</span></div>
+                <div style="grid-column: 1 / -1;"><strong>Email Despacho:</strong> <span class="hl" id="r-despacho-email" contenteditable="true">masconline1@gmail.com</span></div>
+              </div>
+              <div class="firma" id="r-firma-solicitud-block" style="display:none; margin-top:24px;">
+                <div class="fname" id="r-firma-solicitud">***</div>
+              </div>
             </div>
- 
-            <div id="r-propuesta-block">
-              <span class="dsec">Propuesta de resolución</span>
-              <p contenteditable="true" id="r-propuesta" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
+
+            <div id="r-oferta-block">
+              <h2 id="r-doc-titulo">Oferta vinculante confidencial</h2>
+              <p class="ind" style="margin-top:14px;">En <span class="hl" id="r-ciudad" contenteditable="true">Sevilla</span>, a <span class="hl" id="r-fecha" contenteditable="true">9 de mayo de 2026</span>.</p>
+              <p class="ind" id="r-intro-p">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
+  
+              <span class="dsec">Partes involucradas</span>
+              <div class="partyhead">Parte reclamada:</div>
+              <div class="pl"><span id="r-req-trato">Don</span> <span class="hl" id="r-req-nombre" contenteditable="true">El Bekkali</span></div>
+              <div class="pl">Dni: <span class="hl" id="r-req-nif" contenteditable="true">X-1234567-Z</span></div>
+              <div class="pl">Dirección: <span class="hl" id="r-req-dir" contenteditable="true">Calle Asencio y Toledo 33, 41006 Sevilla</span></div>
+              <div class="partyhead" style="margin-top:8px;">Parte proponente:</div>
+              <div class="pl"><span id="r-sol-trato">Don</span> <span class="hl" id="r-sol-nombre" contenteditable="true">Renting Grupo Hermes S.L.</span></div>
+              <div class="pl" id="r-rep-block1">Representante: Don <span class="hl" id="r-rep-nombre" contenteditable="true">José Failde Sánchez</span></div>
+              <div class="pl" id="r-rep-block2">Dni: <span class="hl" id="r-rep-dni" contenteditable="true">28.456.789-Q</span></div>
+              <div class="pl">Dirección: <span class="hl" id="r-sol-dir" contenteditable="true">Av. de la Constitución 22, 41004 Sevilla</span></div>
+              <div class="partyhead" style="margin-top:8px;">Representante:</div>
+              <div class="pl">Don/Dña. <span class="hl" id="r-let-nombre">Julia García Méndez</span></div>
+              <div class="pl">Cdo <span class="hl" id="r-let-col">78.214</span> del Ilustre Colegio de Abogados de Sevilla</div>
+              <div class="pl">Dirección: <span class="hl" id="r-let-dir">Calle Sierpes 65, 1º A, 41004 Sevilla</span></div>
+              <div class="pl">Email: <span class="hl" id="r-let-email">julia.garcia@garcia-asociados.es</span></div>
+              <div class="pl">Teléfono: <span class="hl" id="r-let-tel">954 22 13 45</span></div>
+  
+              <span class="dsec" id="r-conflicto-header">Descripción del conflicto</span>
+              <p class="ind" id="r-conflicto" contenteditable="true">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
+  
+              <div id="r-antecedentes-block">
+                <span class="dsec">Antecedentes y situación arrendaticia actual</span>
+                <p contenteditable="true" id="r-antecedentes" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
+              </div>
+  
+              <div id="r-propuesta-block">
+                <span class="dsec">Propuesta de resolución</span>
+                <p contenteditable="true" id="r-propuesta" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
+              </div>
+  
+              <div id="r-textofijo-block">
+                <span class="dsec" style="color:#94a3b8;">Plazo · Confidencialidad · Consecuencias del rechazo · Medios de comunicación · Conclusión</span>
+                <p style="color:#64748b;font-size:10.5px;background:#f8fafc;padding:8px 12px;border-radius:4px;text-indent:0;">[No editables] Texto legal fijo de la plantilla (arts. 17, 17.3, 5 LO 1/2025, art. 199 CP, art. 394.2 LEC).</p>
+              </div>
+  
+              <div class="firma"><div class="fname" id="r-firma">Firma Letrado Dña. Julia García Méndez</div></div>
             </div>
- 
-            <div id="r-textofijo-block">
-              <span class="dsec" style="color:#94a3b8;">Plazo · Confidencialidad · Consecuencias del rechazo · Medios de comunicación · Conclusión</span>
-              <p style="color:#64748b;font-size:10.5px;background:#f8fafc;padding:8px 12px;border-radius:4px;text-indent:0;">[No editables] Texto legal fijo de la plantilla (arts. 17, 17.3, 5 LO 1/2025, art. 199 CP, art. 394.2 LEC).</p>
-            </div>
- 
-            <div class="firma"><div class="fname" id="r-firma">Firma Letrado Dña. Julia García Méndez</div></div>
           </div>
         </div>
         <div class="formfoot" style="margin-top:14px;"><button class="btno" onclick="V('nuevo')"><i class="ti ti-arrow-left"></i>Editar datos</button><button class="btn" onclick="V('vista')">Vista previa<i class="ti ti-arrow-right"></i></button></div>
@@ -766,9 +799,64 @@
         <div class="back" onclick="V('revisar')"><i class="ti ti-arrow-left"></i>Volver a edición</div>
         <div class="stepbar"><div class="stp"><div class="stpd done"></div><span class="stpl">1 · Datos</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd done"></div><span class="stpl">2 · Revisar y editar</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd cur"></div><span class="stpl cur">3 · Vista previa</span></div><div class="stpln"></div><div class="stp"><div class="stpd"></div><span class="stpl">4 · Notificar</span></div></div>
         <div class="ph"><div><h1>Documento final</h1><p>Así se verá el PDF que se enviará al requerido.</p></div></div>
-        <div class="pdftoolbar"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i><span id="p-pdf-filename">oferta-vinculante-EXP-2026-014.pdf</span></span><div class="tools"><span class="pgnum" id="p-pdf-pagenum-label">Página 1 de 2</span><i class="ti ti-zoom-in"></i><i class="ti ti-zoom-out"></i><i class="ti ti-download"></i><i class="ti ti-printer"></i></div></div>
-        <div class="pdfwrap">
-          <div class="pdfsheet">
+        <div class="pdftoolbar"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i><span id="p-pdf-filename">oferta-vinculante-EXP-2026-014.pdf</span></span><div class="tools"><span class="pgnum" id="p-pdf-pagenum-label">Página 1 de 3</span></div></div><div class="pdfwrap"><div class="pdfsheet" id="p-pdf-sheet1">
+            <h2 id="p-sol-titulo" style="text-align:center; font-weight:700; text-transform:uppercase;">Solicitud de mediación MASC</h2>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; border: 1px solid var(--color-border-primary); padding: 14px; border-radius: var(--border-radius-md); background: #f8fafc; font-size: 11px;">
+              <div><strong>ID S/Expediente:</strong> <span id="p-sol-exp-id">EXP-2026-***</span></div>
+              <div><strong>Fecha y hora:</strong> <span id="p-sol-exp-fecha">***</span></div>
+              <div><strong>Tipo de expediente:</strong> <span id="p-sol-exp-tipo">***</span></div>
+              <div><strong>Tipo de envío:</strong> <span id="p-sol-exp-envio">***</span></div>
+              <div><strong>Plataforma de pago:</strong> <span id="p-sol-exp-pago">***</span></div>
+              <div><strong>Estado:</strong> <span id="p-sol-exp-estado">***</span></div>
+            </div>
+
+            <span class="dsec" style="font-size:11px; margin-top:14px;">Solicitante (parte proponente)</span>
+            <div style="font-size: 11px; line-height: 1.5; padding-left: 8px;">
+              <div><strong>Nombre/Razón Social:</strong> <span id="p-sol-nombre-c">***</span></div>
+              <div><strong>DNI / NIF / CIF:</strong> <span id="p-sol-nif-c">***</span></div>
+              <div><strong>Dirección:</strong> <span id="p-sol-dir-c">***</span></div>
+              <div><strong>Intervención:</strong> <span id="p-sol-intervencion-c">***</span></div>
+              <div id="p-sol-rep-block" style="display:none;"><strong>Representante:</strong> <span id="p-sol-rep-c">***</span> (DNI: <span id="p-sol-rep-dni-c">***</span>)</div>
+              <div><strong>Email de notificaciones:</strong> <span id="p-sol-email-c">***</span></div>
+              <div><strong>Letrado firmante:</strong> <span id="p-sol-letrado-c">***</span></div>
+            </div>
+
+            <span class="dsec" style="font-size:11px; margin-top:14px;">Requerido/a (parte reclamada)</span>
+            <div style="font-size: 11px; line-height: 1.5; padding-left: 8px;">
+              <div><strong>Nombre/Razón Social:</strong> <span id="p-req-nombre-c">***</span></div>
+              <div><strong>DNI / NIF / CIF:</strong> <span id="p-req-nif-c">***</span></div>
+              <div><strong>Dirección:</strong> <span id="p-req-dir-c">***</span></div>
+              <div><strong>Tipo de requerido:</strong> <span id="p-req-tipo-c">***</span></div>
+              <div><strong>Email de notificaciones:</strong> <span id="p-req-email-c">***</span></div>
+            </div>
+
+            <span class="dsec" style="font-size:11px; margin-top:14px;">Correos de gestión y despacho</span>
+            <div style="font-size: 11px; padding-left: 8px;">
+              <div><strong>Email del despacho:</strong> <span id="p-despacho-email-c">masconline1@gmail.com</span></div>
+            </div>
+
+            <span class="dsec" id="p-conflicto-titulo-c" style="font-size:11px; margin-top:14px;">Descripción de la reclamación</span>
+            <p id="p-conflicto-c" style="text-indent: 0; padding-left: 8px; font-size: 11px; margin-top: 4px; line-height: 1.45;">***</p>
+
+            <span class="dsec" style="font-size:11px; margin-top:14px;">Certificación MASC</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 6px; padding-left: 8px; font-size: 11px;">
+              <div>
+                <div><strong>Obtener Certificado Mediación:</strong> <span style="color:var(--color-success); font-weight:600;"><i class="ti ti-shield-check"></i> Emitido QTSP</span></div>
+                <div style="font-size:9.5px; color:var(--color-text-light); margin-top:2px;">El certificado probatorio de remisión y recepción se enviará al despacho y a ambas partes.</div>
+              </div>
+              <div style="width: 44px; height: 44px; border: 1px solid var(--color-border-secondary); display:flex; align-items:center; justify-content:center; border-radius: 4px; background:#fff; margin-right:10px;">
+                <i class="ti ti-qrcode" style="font-size: 32px; color: var(--color-text-muted);"></i>
+              </div>
+            </div>
+
+            <div class="firma" id="p-firma-sheet1-block" style="margin-top: 20px; border-top: 1px dashed var(--color-border-secondary); padding-top: 10px;">
+              <div class="fname" id="p-firma-sheet1">***</div>
+            </div>
+            <span class="pagenum" id="p-pagenum1">Página 1 de 1</span>
+          </div>
+
+          <div class="pdfsheet" id="p-pdf-sheet2" style="display:none;">
             <h2 id="p-doc-titulo">Oferta vinculante confidencial</h2>
             <p class="noindent" style="margin-top:18px;text-indent:28px;">En <span id="p-ciudad">Sevilla</span>, a <span id="p-fecha">9 de mayo de 2026</span>.</p>
             <p id="p-intro-p">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
@@ -802,32 +890,23 @@
             <div id="p-antecedentes-block1">
               <span class="dsec">Antecedentes y situación arrendaticia actual</span>
               <ol id="p-antecedentes-ol1">
-                <li>En fecha 1 de octubre de 2016, se rubricó contrato entre el Sr. El Bekkali y Don José Failde Villaraviz, progenitor de mi representado Don José Failde Sánchez, socio y administrador único de la mercantil Renting Grupo Hermes, S.L. Se acordaba el arrendamiento del local sito en Calle Asencio y Toledo 33, por un plazo de tres años, ampliable a una cuarta anualidad, prorrogable por tácita reconducción.</li>
-                <li>En fecha 21 de abril de 2023, tras el fallecimiento de Don José Failde Villaraviz el 12 de marzo de 2023, se notificó al arrendatario la subrogación del arrendador, exponiendo el número de cuenta bancaria para las rentas, la persona de contacto y los datos del nuevo arrendador.</li>
-                <li>Tras la finalización del procedimiento de herencia, el representado aportó el inmueble a su sociedad limitada en abril de 2024, siendo conocedor el arrendatario de dicha titularidad en todo momento, según constaba en la notificación de subrogación y en las transferencias bancarias del periodo.</li>
+                <li>***</li>
               </ol>
             </div>
-            <div class="firma" id="p-firma-sheet1-block" style="display:none; margin-top: 40px; border-top: 1px dashed var(--color-border-secondary); padding-top: 16px;">
-              <div class="fname" id="p-firma-sheet1">Firma Letrado D. Jesús María Blanco Charlo</div>
-            </div>
-            <span class="pagenum" id="p-pagenum1">Página 1 de 2</span>
+            <span class="pagenum" id="p-pagenum2">Página 2 de 3</span>
           </div>
 
-          <div class="pdfsheet" id="p-pdf-sheet2">
+          <div class="pdfsheet" id="p-pdf-sheet3" style="display:none;">
             <div id="p-antecedentes-block2">
               <ol start="4" id="p-antecedentes-ol2">
-                <li>Con fecha 27 de septiembre de 2024, se notificó al arrendatario, mediante burofax, la resolución del contrato por expiración del término pactado, con efectos a diciembre de la misma anualidad. La comunicación fue remitida por el letrado que suscribe, en nombre y representación del administrador único de la propietaria, para que no existiera duda sobre la legitimación y capacidad representativa.</li>
-                <li>Debido a que el arrendatario no desalojó el local de forma voluntaria, hubo que acudir a la tutela judicial, dictándose sentencia en fecha 30 de noviembre de 2025, que desestima la demanda interpuesta por defecto de forma y sin entrar en el fondo del asunto.</li>
-                <li>Que antes de interponer una nueva demanda, subsanando los defectos de forma, se le envía la presente oferta vinculante confidencial, con la correspondiente propuesta de acuerdo.</li>
+                <li>***</li>
               </ol>
             </div>
 
             <div id="p-propuesta-block">
               <span class="dsec">Propuesta de resolución</span>
               <ul id="p-propuesta-ul">
-                <li>El Sr. El Bekkali deberá desalojar el local comercial sito en Sevilla, Calle Asencio y Toledo núm. 33, con anterioridad al día 30 de junio de 2026.</li>
-                <li>El proponente condonará los daños y perjuicios económicos devengados desde la fecha en que el arrendatario debió desalojar el local, sin que haya abonado suma alguna en concepto de la ocupación precaria del inmueble.</li>
-                <li>Finalmente, se contrae el compromiso de cumplimiento y ambas partes declaran la inexistencia de cualquier otra responsabilidad adicional una vez aceptada la propuesta y formalizado el acuerdo.</li>
+                <li>***</li>
               </ul>
             </div>
 
@@ -844,7 +923,7 @@
 
             <div id="p-costas-block">
               <span class="dsec">Consecuencias del rechazo injustificado</span>
-              <p>En caso de rechazo infundado o falta de respuesta y posterior resolución judicial que otorgue una cuantía igual o inferior a la propuesta, la parte proponente podrá solicitar la imposición de costas procesales conforme al artículo 394.2 de la Ley de Enjuiciamiento Civil, según la reforma introducida por la Ley Orgánica 1/2025.</p>
+              <p>En caso de rechazo infundado o falta de respuesta and posterior resolución judicial que otorgue una cuantía igual o inferior a la propuesta, la parte proponente podrá solicitar la imposición de costas procesales conforme al artículo 394.2 de la Ley de Enjuiciamiento Civil, según la reforma introducida por la Ley Orgánica 1/2025.</p>
             </div>
 
             <div id="p-conclusiones-block">
@@ -856,7 +935,7 @@
             </div>
 
             <div class="firma"><div class="fname" id="p-firma">Firma Letrado Dña. Julia María García Méndez</div></div>
-            <span class="pagenum">Página 2 de 2</span>
+            <span class="pagenum" id="p-pagenum3">Página 3 de 3</span>
           </div>
         </div>
         <div class="formfoot" style="margin-top:14px;"><button class="btno" onclick="V('revisar')"><i class="ti ti-arrow-left"></i>Volver a editar</button><button class="btnacc" onclick="V('detalle')"><i class="ti ti-send"></i>Enviar con valor probatorio</button></div>
@@ -1051,6 +1130,104 @@ function sidebar(active){
   + it('ajustes','ajustes','ti-settings','Ajustes')
   + '<div class="sbfoot"><div class="av">JG</div><div><div class="nm">Julia García</div><div class="rl">García &amp; Asociados</div></div></div>';
 }
+function cargarEjemploAleatorio() {
+  var escenarios = [
+    {
+      sol_nombre: "Renting Grupo Hermes S.L. [Ejemplo]",
+      sol_nif: "B-87654321 [Ejemplo]",
+      sol_email: "renting.hermes.ejemplo@correo.com",
+      sol_dir: "Av. de la Constitución 22, 41004 Sevilla [Ejemplo]",
+      sol_tipo: "Persona jurídica",
+      intervencion: "rep",
+      rep_nombre: "José Failde Sánchez [Ejemplo]",
+      rep_dni: "28.456.789-Q [Ejemplo]",
+      req_nombre: "El Bekkali [Ejemplo]",
+      req_nif: "X-1234567-Z [Ejemplo]",
+      req_email: "elbekkali.ejemplo@correo.com",
+      req_dir: "Calle Asencio y Toledo 33, 41006 Sevilla [Ejemplo]",
+      req_tipo: "Persona física",
+      local_dir: "Calle Asencio y Toledo nº 33 [Ejemplo]",
+      fecha_desalojo: "30 de junio de 2026 [Ejemplo]",
+      fecha_resolucion: "diciembre 2024 [Ejemplo]",
+      arrendador_original: "Don José Failde Villaraviz [Ejemplo]",
+      fecha_fallecimiento: "12 de marzo de 2023 [Ejemplo]",
+      conflicto: "Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33 [Ejemplo]."
+    },
+    {
+      sol_nombre: "Alquileres Aljarafe S.L. [Ejemplo]",
+      sol_nif: "B-41987654 [Ejemplo]",
+      sol_email: "aljarafe.ejemplo@correo.com",
+      sol_dir: "Calle Sierpes 10, 41004 Sevilla [Ejemplo]",
+      sol_tipo: "Persona jurídica",
+      intervencion: "rep",
+      rep_nombre: "Manuel Rodríguez Ramos [Ejemplo]",
+      rep_dni: "34.123.456-A [Ejemplo]",
+      req_nombre: "Talleres Núñez S.L. [Ejemplo]",
+      req_nif: "B-91827364 [Ejemplo]",
+      req_email: "talleresnunez.ejemplo@correo.com",
+      req_dir: "Avenida de Jerez 142, 41013 Sevilla [Ejemplo]",
+      req_tipo: "Persona jurídica",
+      local_dir: "Avenida de Jerez nº 142 [Ejemplo]",
+      fecha_desalojo: "15 de julio de 2026 [Ejemplo]",
+      fecha_resolucion: "octubre 2024 [Ejemplo]",
+      arrendador_original: "Don Antonio Rodríguez Gil [Ejemplo]",
+      fecha_fallecimiento: "5 de junio de 2022 [Ejemplo]",
+      conflicto: "Resolución extrajudicial del contrato de arrendamiento de nave industrial, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Avenida de Jerez nº 142 [Ejemplo]."
+    },
+    {
+      sol_nombre: "Promociones Triana S.A. [Ejemplo]",
+      sol_nif: "A-90123456 [Ejemplo]",
+      sol_email: "triana.ejemplo@correo.com",
+      sol_dir: "Calle Betis 45, 41010 Sevilla [Ejemplo]",
+      sol_tipo: "Persona jurídica",
+      intervencion: "rep",
+      rep_nombre: "Carlos Ortega Pastor [Ejemplo]",
+      rep_dni: "29.765.432-Z [Ejemplo]",
+      req_nombre: "Carmen Ruiz Alba [Ejemplo]",
+      req_nif: "77.123.456-M [Ejemplo]",
+      req_email: "carmenruiz.ejemplo@correo.com",
+      req_dir: "Calle Pagés del Corro 89, 2º B, 41010 Sevilla [Ejemplo]",
+      req_tipo: "Persona física",
+      local_dir: "Calle Pagés del Corro nº 89, local comercial [Ejemplo]",
+      fecha_desalojo: "31 de agosto de 2026 [Ejemplo]",
+      fecha_resolucion: "enero 2025 [Ejemplo]",
+      arrendador_original: "Doña María Belmonte Soria [Ejemplo]",
+      fecha_fallecimiento: "18 de noviembre de 2023 [Ejemplo]",
+      conflicto: "Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Pagés del Corro nº 89 [Ejemplo]."
+    }
+  ];
+  
+  var esc = escenarios[Math.floor(Math.random() * escenarios.length)];
+  
+  document.getElementById('f-sol-nombre').value = esc.sol_nombre;
+  document.getElementById('f-sol-nif').value = esc.sol_nif;
+  document.getElementById('f-sol-email').value = esc.sol_email;
+  document.getElementById('f-sol-dir').value = esc.sol_dir;
+  document.getElementById('f-sol-tipo').value = esc.sol_tipo;
+  document.getElementById('intervencion').value = esc.intervencion;
+  toggleRep();
+  
+  document.getElementById('f-rep-nombre').value = esc.rep_nombre;
+  document.getElementById('f-rep-dni').value = esc.rep_dni;
+  
+  document.getElementById('f-req-nombre').value = esc.req_nombre;
+  document.getElementById('f-req-nif').value = esc.req_nif;
+  document.getElementById('f-req-email').value = esc.req_email;
+  document.getElementById('f-req-dir').value = esc.req_dir;
+  document.getElementById('f-req-tipo').value = esc.req_tipo;
+  
+  document.getElementById('f-local-dir').value = esc.local_dir;
+  document.getElementById('f-fecha-desalojo').value = esc.fecha_desalojo;
+  document.getElementById('f-fecha-resolucion').value = esc.fecha_resolucion;
+  document.getElementById('f-arrendador-original').value = esc.arrendador_original;
+  document.getElementById('f-fecha-fallecimiento').value = esc.fecha_fallecimiento;
+  document.getElementById('f-conflicto').value = esc.conflicto;
+  
+  var autoEl = document.getElementById('f-auto-textos');
+  if (autoEl) autoEl.checked = true;
+  actualizarPlantillaTextos();
+}
+
 function V(id){
   document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on');});
   document.getElementById('v-'+id).classList.add('on');
@@ -1058,7 +1235,7 @@ function V(id){
   for(var i=1;i<=12;i++){var el=document.getElementById('sb'+i); if(el) el.innerHTML=sidebar(map[id]);}
   
   if (id === 'nuevo') {
-    var randId = "EXP-2026-" + String(Math.floor(Math.random() * 900) + 100);
+    var randId = "EXP-2026-" + String(Math.floor(Math.random() * 900) + 100) + " [Ejemplo]";
     var expIdEl = document.getElementById('f-exp-id');
     if (expIdEl) expIdEl.value = randId;
     
@@ -1066,11 +1243,19 @@ function V(id){
     if (expFechaEl) {
       var now = new Date();
       var timeStr = now.toTimeString().substring(0, 5);
-      expFechaEl.value = getFormattedDate() + " " + timeStr;
+      expFechaEl.value = getFormattedDate() + " " + timeStr + " [Ejemplo]";
     }
     
+    var letradoKeys = ['jesus', 'julia', 'luis', 'ana', 'pablo'];
+    var randomLetrado = letradoKeys[Math.floor(Math.random() * letradoKeys.length)];
     var letEl = document.getElementById('f-letrado');
-    if (letEl) letEl.value = 'jesus';
+    if (letEl) letEl.value = randomLetrado;
+    
+    var despEmailEl = document.getElementById('f-despacho-email');
+    if (despEmailEl) despEmailEl.value = "masconline1@gmail.com";
+    
+    var estEl = document.getElementById('f-exp-estado');
+    if (estEl) estEl.value = "resultado";
     
     var tipoSelect = document.getElementById('f-exp-tipo');
     if (tipoSelect) {
@@ -1079,6 +1264,8 @@ function V(id){
         cambiarTipoExpediente('oferta');
       }
     }
+    
+    cargarEjemploAleatorio();
   }
 }
 function seleccionarPill(el,groupId){ document.querySelectorAll('#'+groupId+' .pill').forEach(function(p){p.classList.remove('sel');}); el.classList.add('sel'); }
@@ -1238,23 +1425,31 @@ function generarYMostrarDocumento() {
   var tipoSelect = document.getElementById('f-exp-tipo');
   var isOferta = (tipoSelect && tipoSelect.value === 'oferta');
   
+  var expEstadoSelect = document.getElementById('f-exp-estado');
+  var isResultado = (expEstadoSelect && expEstadoSelect.value === 'resultado');
+  var showOferta = (isOferta && isResultado);
+  
   var intervencion = document.getElementById('intervencion').value;
   var solTipo = document.getElementById('f-sol-tipo').value;
-  var solNombre = document.getElementById('f-sol-nombre').value;
-  var solNif = document.getElementById('f-sol-nif').value;
-  var solDir = document.getElementById('f-sol-dir').value;
+  var solNombre = document.getElementById('f-sol-nombre').value || "***";
+  var solNif = document.getElementById('f-sol-nif').value || "***";
+  var solDir = document.getElementById('f-sol-dir').value || "***";
+  var solEmail = document.getElementById('f-sol-email').value || "***";
   
-  var repNombre = document.getElementById('f-rep-nombre').value;
-  var repDni = document.getElementById('f-rep-dni').value;
+  var repNombre = document.getElementById('f-rep-nombre').value || "***";
+  var repDni = document.getElementById('f-rep-dni').value || "***";
   
   var reqTipo = document.getElementById('f-req-tipo').value;
-  var reqNombre = document.getElementById('f-req-nombre').value;
-  var reqNif = document.getElementById('f-req-nif').value;
-  var reqDir = document.getElementById('f-req-dir').value;
+  var reqNombre = document.getElementById('f-req-nombre').value || "***";
+  var reqNif = document.getElementById('f-req-nif').value || "***";
+  var reqDir = document.getElementById('f-req-dir').value || "***";
+  var reqEmail = document.getElementById('f-req-email').value || "***";
   
-  var conflicto = document.getElementById('f-conflicto').value;
-  var antecedentes = isOferta ? document.getElementById('f-antecedentes').value : "";
-  var propuesta = isOferta ? document.getElementById('f-propuesta').value : "";
+  var despachoEmail = document.getElementById('f-despacho-email').value || "masconline1@gmail.com";
+  
+  var conflicto = document.getElementById('f-conflicto').value || "***";
+  var antecedentes = showOferta ? (document.getElementById('f-antecedentes').value || "***") : "";
+  var propuesta = showOferta ? (document.getElementById('f-propuesta').value || "***") : "";
   
   var fechaText = getFormattedDate();
   var ciudadText = "Sevilla";
@@ -1263,7 +1458,28 @@ function generarYMostrarDocumento() {
   document.getElementById('r-ciudad').textContent = ciudadText;
   document.getElementById('r-fecha').textContent = fechaText;
   
-  // Titulos y Parrafos de introduccion dinámicos
+  // Paso 2: Datos de la Solicitud (Ficha)
+  var rSolExpId = document.getElementById('r-sol-exp-id');
+  if (rSolExpId) rSolExpId.textContent = expId;
+  var rSolExpFecha = document.getElementById('r-sol-exp-fecha');
+  if (rSolExpFecha) rSolExpFecha.textContent = document.getElementById('f-exp-fecha').value || fechaText;
+  
+  var rSolExpEnvio = document.getElementById('r-sol-exp-envio');
+  if (rSolExpEnvio) {
+    var selPill = document.querySelector('#tipo-env .pill.sel');
+    rSolExpEnvio.textContent = selPill ? selPill.textContent : "BuroFax";
+  }
+  var rSolExpPago = document.getElementById('r-sol-exp-pago');
+  if (rSolExpPago) rSolExpPago.textContent = document.getElementById('f-pago').value;
+  
+  var rSolEmail = document.getElementById('r-sol-email');
+  if (rSolEmail) rSolEmail.textContent = solEmail;
+  var rReqEmail = document.getElementById('r-req-email');
+  if (rReqEmail) rReqEmail.textContent = reqEmail;
+  var rDespachoEmail = document.getElementById('r-despacho-email');
+  if (rDespachoEmail) rDespachoEmail.textContent = despachoEmail;
+  
+  // Paso 2: Oferta vinculante - Títulos y Párrafos
   var docTitulo = isOferta ? "Oferta vinculante confidencial" : "Solicitud de mediación MASC";
   var introText = isOferta 
     ? "Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal."
@@ -1312,19 +1528,80 @@ function generarYMostrarDocumento() {
   document.getElementById('r-conflicto').textContent = conflicto;
   
   // Toggles de visibilidad en Paso 2
+  var rOfertaBlock = document.getElementById('r-oferta-block');
+  if (rOfertaBlock) rOfertaBlock.style.display = showOferta ? 'block' : 'none';
+  
   var rAntBlock = document.getElementById('r-antecedentes-block');
   var rPropBlock = document.getElementById('r-propuesta-block');
   var rFixedBlock = document.getElementById('r-textofijo-block');
   
-  if (rAntBlock) rAntBlock.style.display = isOferta ? 'block' : 'none';
-  if (rPropBlock) rPropBlock.style.display = isOferta ? 'block' : 'none';
-  if (rFixedBlock) rFixedBlock.style.display = isOferta ? 'block' : 'none';
+  if (rAntBlock) rAntBlock.style.display = showOferta ? 'block' : 'none';
+  if (rPropBlock) rPropBlock.style.display = showOferta ? 'block' : 'none';
+  if (rFixedBlock) rFixedBlock.style.display = showOferta ? 'block' : 'none';
   
   document.getElementById('r-antecedentes').textContent = antecedentes;
   document.getElementById('r-propuesta').textContent = propuesta;
   document.getElementById('r-firma').textContent = letradoInfo.firma;
   
+  // Firma en la Solicitud de Paso 2
+  var rFirmaSolicitudBlock = document.getElementById('r-firma-solicitud-block');
+  if (rFirmaSolicitudBlock) {
+    rFirmaSolicitudBlock.style.display = showOferta ? 'none' : 'block';
+    var rFirmaSolicitud = document.getElementById('r-firma-solicitud');
+    if (rFirmaSolicitud) rFirmaSolicitud.textContent = letradoInfo.firma;
+  }
+  
   // Paso 3 (Preview)
+  // PDF Hoja 1 (Solicitud cover sheet)
+  var pSolExpId = document.getElementById('p-sol-exp-id');
+  if (pSolExpId) pSolExpId.textContent = expId.replace(/\s*\[Ejemplo\]/g, '');
+  var pSolExpFecha = document.getElementById('p-sol-exp-fecha');
+  if (pSolExpFecha) pSolExpFecha.textContent = document.getElementById('f-exp-fecha').value.replace(/\s*\[Ejemplo\]/g, '') || fechaText;
+  
+  var pSolExpTipo = document.getElementById('p-sol-exp-tipo');
+  if (pSolExpTipo) {
+    pSolExpTipo.textContent = isOferta ? "Oferta vinculante confidencial" : "Reclamación de mediación MASC";
+  }
+  var pSolExpEnvio = document.getElementById('p-sol-exp-envio');
+  if (pSolExpEnvio) {
+    var selPill = document.querySelector('#tipo-env .pill.sel');
+    pSolExpEnvio.textContent = selPill ? selPill.textContent : "BuroFax";
+  }
+  var pSolExpPago = document.getElementById('p-sol-exp-pago');
+  if (pSolExpPago) pSolExpPago.textContent = document.getElementById('f-pago').value;
+  var pSolExpEstado = document.getElementById('p-sol-exp-estado');
+  if (pSolExpEstado) {
+    pSolExpEstado.textContent = isResultado ? "Resultado (Oferta vinculante)" : "En proceso (Solicitud de mediación)";
+  }
+  
+  document.getElementById('p-sol-nombre-c').textContent = solNombre;
+  document.getElementById('p-sol-nif-c').textContent = solNif;
+  document.getElementById('p-sol-dir-c').textContent = solDir;
+  document.getElementById('p-sol-intervencion-c').textContent = (intervencion === 'rep') ? "En representación" : "En nombre propio";
+  
+  var pSolRepBlock = document.getElementById('p-sol-rep-block');
+  if (pSolRepBlock) pSolRepBlock.style.display = (intervencion === 'rep') ? 'block' : 'none';
+  document.getElementById('p-sol-rep-c').textContent = repNombre;
+  document.getElementById('p-sol-rep-dni-c').textContent = repDni;
+  
+  document.getElementById('p-sol-email-c').textContent = solEmail;
+  document.getElementById('p-sol-letrado-c').textContent = letradoInfo.nombre;
+  
+  document.getElementById('p-req-nombre-c').textContent = reqNombre;
+  document.getElementById('p-req-nif-c').textContent = reqNif;
+  document.getElementById('p-req-dir-c').textContent = reqDir;
+  document.getElementById('p-req-tipo-c').textContent = reqTipo;
+  document.getElementById('p-req-email-c').textContent = reqEmail;
+  
+  document.getElementById('p-despacho-email-c').textContent = despachoEmail;
+  
+  var pConfTitleC = document.getElementById('p-conflicto-titulo-c');
+  if (pConfTitleC) {
+    pConfTitleC.textContent = isOferta ? "Descripción de la oferta vinculante" : "Descripción de la reclamación";
+  }
+  document.getElementById('p-conflicto-c').textContent = conflicto;
+  
+  // PDF Hoja 2 (Oferta Vinc. - Datos)
   var pDocTituloEl = document.getElementById('p-doc-titulo');
   if (pDocTituloEl) pDocTituloEl.textContent = docTitulo;
   var pIntroPEl = document.getElementById('p-intro-p');
@@ -1372,34 +1649,44 @@ function generarYMostrarDocumento() {
   // Archivo PDF e indicadores de paginas
   var pdfFilenameEl = document.getElementById('p-pdf-filename');
   if (pdfFilenameEl) {
-    var prefix = isOferta ? "oferta-vinculante-" : "solicitud-mediacion-";
-    pdfFilenameEl.textContent = prefix + expId + ".pdf";
+    var prefix = showOferta ? "oferta-vinculante-" : "solicitud-mediacion-";
+    pdfFilenameEl.textContent = prefix + expId.replace(/\s*\[Ejemplo\]/g, '') + ".pdf";
   }
+  
+  var totalPages = showOferta ? 3 : 1;
   
   var pdfPagenumLabel = document.getElementById('p-pdf-pagenum-label');
   if (pdfPagenumLabel) {
-    pdfPagenumLabel.textContent = isOferta ? "Página 1 de 2" : "Página 1 de 1";
+    pdfPagenumLabel.textContent = "Página 1 de " + totalPages;
   }
   
   var pagenum1El = document.getElementById('p-pagenum1');
   if (pagenum1El) {
-    pagenum1El.textContent = isOferta ? "Página 1 de 2" : "Página 1 de 1";
+    pagenum1El.textContent = "Página 1 de " + totalPages;
+  }
+  var pagenum2El = document.getElementById('p-pagenum2');
+  if (pagenum2El) {
+    pagenum2El.textContent = "Página 2 de " + totalPages;
+  }
+  var pagenum3El = document.getElementById('p-pagenum3');
+  if (pagenum3El) {
+    pagenum3El.textContent = "Página 3 de " + totalPages;
   }
   
-  // Toggles de bloques de previsualización
-  var pAntBlock1 = document.getElementById('p-antecedentes-block1');
+  // Toggles de hojas de previsualización
   var pSheet2 = document.getElementById('p-pdf-sheet2');
+  var pSheet3 = document.getElementById('p-pdf-sheet3');
   var pFirmaSheet1Block = document.getElementById('p-firma-sheet1-block');
   
-  if (pAntBlock1) pAntBlock1.style.display = isOferta ? 'block' : 'none';
-  if (pSheet2) pSheet2.style.display = isOferta ? 'block' : 'none';
+  if (pSheet2) pSheet2.style.display = showOferta ? 'block' : 'none';
+  if (pSheet3) pSheet3.style.display = showOferta ? 'block' : 'none';
   if (pFirmaSheet1Block) {
-    pFirmaSheet1Block.style.display = isOferta ? 'none' : 'block';
+    pFirmaSheet1Block.style.display = showOferta ? 'none' : 'block';
     var pFirmaSheet1 = document.getElementById('p-firma-sheet1');
     if (pFirmaSheet1) pFirmaSheet1.textContent = letradoInfo.firma;
   }
   
-  if (isOferta) {
+  if (showOferta) {
     // Antecedentes list parsing
     var antLines = antecedentes.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
                                .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
@@ -1448,24 +1735,32 @@ function initSync() {
   var mappings = [
     { from: 'r-ciudad', to: 'p-ciudad' },
     { from: 'r-fecha', to: 'p-fecha' },
-    { from: 'r-req-nombre', to: 'p-req-nombre' },
-    { from: 'r-req-nif', to: 'p-req-nif' },
-    { from: 'r-req-dir', to: 'p-req-dir' },
-    { from: 'r-sol-nombre', to: 'p-sol-nombre' },
-    { from: 'r-rep-nombre', to: 'p-rep-nombre' },
-    { from: 'r-rep-dni', to: 'p-rep-dni' },
-    { from: 'r-sol-dir', to: 'p-sol-dir' },
-    { from: 'r-conflicto', to: 'p-conflicto' }
+    { from: 'r-req-nombre', to: ['p-req-nombre', 'p-req-nombre-c'] },
+    { from: 'r-req-nif', to: ['p-req-nif', 'p-req-nif-c'] },
+    { from: 'r-req-dir', to: ['p-req-dir', 'p-req-dir-c'] },
+    { from: 'r-sol-nombre', to: ['p-sol-nombre', 'p-sol-nombre-c'] },
+    { from: 'r-rep-nombre', to: ['p-rep-nombre', 'p-rep-c'] },
+    { from: 'r-rep-dni', to: ['p-rep-dni', 'p-rep-dni-c'] },
+    { from: 'r-sol-dir', to: ['p-sol-dir', 'p-sol-dir-c'] },
+    { from: 'r-conflicto', to: ['p-conflicto', 'p-conflicto-c'] },
+    { from: 'r-sol-exp-id', to: 'p-sol-exp-id' },
+    { from: 'r-sol-exp-fecha', to: 'p-sol-exp-fecha' },
+    { from: 'r-sol-email', to: 'p-sol-email-c' },
+    { from: 'r-req-email', to: 'p-req-email-c' },
+    { from: 'r-despacho-email', to: 'p-despacho-email-c' }
   ];
   
   mappings.forEach(function(m) {
     var fromEl = document.getElementById(m.from);
     if (fromEl) {
       fromEl.addEventListener('input', function() {
-        var toEl = document.getElementById(m.to);
-        if (toEl) {
-          toEl.textContent = fromEl.textContent;
-        }
+        var targets = Array.isArray(m.to) ? m.to : [m.to];
+        targets.forEach(function(targetId) {
+          var toEl = document.getElementById(targetId);
+          if (toEl) {
+            toEl.textContent = fromEl.textContent;
+          }
+        });
       });
     }
   });
