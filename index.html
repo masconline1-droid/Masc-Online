@@ -1261,53 +1261,82 @@ async function enviarDocumentoPorEmail() {
       <p style="font-size: 11px; color: #94a3b8; text-align: center; margin: 0;">Remitido digitalmente a través de MASC Digital. Copia de registro en base de datos.</p>
     </div>
   `;
+
+  var recipients = [
+    { email: solEmail, role: 'Solicitante' },
+    { email: reqEmail, role: 'Requerido' },
+    { email: despachoEmail, role: 'Despacho' }
+  ];
   
-  try {
-    var url = 'https://api.resend.com/emails';
-    var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+  var successCount = 0;
+  var failDetails = [];
+  
+  for (var i = 0; i < recipients.length; i++) {
+    var rec = recipients[i];
+    if (!rec.email || rec.email.includes('***') || rec.email.trim() === '') continue;
     
-    var sendPayload = {
-      from: fromEmail,
-      to: [solEmail, reqEmail, despachoEmail],
-      subject: `Notificación MASC Digital - Expediente \${expId}`,
-      html: emailBody
-    };
+    // Ignorar correos ficticios de ejemplo para evitar que Resend rebote toda la petición
+    if (rec.email.includes('ejemplo') || rec.email.includes('correo.com')) {
+      continue;
+    }
     
-    var response;
     try {
-      response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey
-        },
-        body: JSON.stringify(sendPayload)
-      });
-    } catch (corsError) {
-      response = await fetch(proxyUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey
-        },
-        body: JSON.stringify(sendPayload)
-      });
+      var url = 'https://api.resend.com/emails';
+      var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+      
+      var sendPayload = {
+        from: fromEmail,
+        to: [rec.email],
+        subject: `Notificación MASC Digital - Expediente \${expId} (\${rec.role})`,
+        html: emailBody
+      };
+      
+      var response;
+      try {
+        response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+          },
+          body: JSON.stringify(sendPayload)
+        });
+      } catch (corsError) {
+        response = await fetch(proxyUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+          },
+          body: JSON.stringify(sendPayload)
+        });
+      }
+      
+      if (response.ok) {
+        successCount++;
+      } else {
+        var errData = "";
+        try { errData = await response.text(); } catch(e){}
+        failDetails.push(rec.role + " (" + rec.email + "): " + response.status + " " + errData);
+      }
+    } catch (err) {
+      failDetails.push(rec.role + " (" + rec.email + "): " + err.message);
     }
-    
-    if (response.ok) {
-      alert("¡Correos enviados con éxito mediante la API de Resend al solicitante, al requerido y a " + despachoEmail + "!");
-    } else {
-      var errData = "";
-      try { errData = await response.text(); } catch(e){}
-      alert("La API de Resend devolvió un error (código " + response.status + "): " + errData + "\nEl expediente se creará de todas formas.");
-    }
-  } catch (err) {
-    alert("No se pudo conectar con el servidor de Resend: " + err.message + "\nSe simula la creación del expediente.");
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = origText;
-    V('detalle');
   }
+  
+  if (successCount > 0) {
+    var msg = "¡Se enviaron " + successCount + " correo(s) con éxito mediante la API de Resend!";
+    if (failDetails.length > 0) {
+      msg += "\n\nAlgunos envíos fallaron (por ejemplo, si tu cuenta de Resend está en modo Sandbox y no tiene esos correos de prueba verificados):\n" + failDetails.join('\n');
+    }
+    alert(msg);
+  } else {
+    alert("No se pudo enviar ningún correo real mediante Resend.\nDetalles:\n" + (failDetails.join('\n') || "No se detectaron destinatarios reales."));
+  }
+  
+  btn.disabled = false;
+  btn.innerHTML = origText;
+  V('detalle');
 }
 
 function cargarEjemploAleatorio() {
