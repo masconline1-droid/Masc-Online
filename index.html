@@ -1316,7 +1316,7 @@ async function enviarDocumentoPorEmail() {
     
     try {
       var url = 'https://api.resend.com/emails';
-      var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+      var proxyUrl = 'https://corsproxy.io/?url=' + encodeURIComponent(url);
       
       var sendPayload = {
         from: fromEmail,
@@ -1325,26 +1325,15 @@ async function enviarDocumentoPorEmail() {
         html: emailBody
       };
       
-      var response;
-      try {
-        response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + apiKey
-          },
-          body: JSON.stringify(sendPayload)
-        });
-      } catch (corsError) {
-        response = await fetch(proxyUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + apiKey
-          },
-          body: JSON.stringify(sendPayload)
-        });
-      }
+      // Resend does not support browser CORS requests, so we must use a POST-supporting CORS proxy.
+      var response = await fetch(proxyUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify(sendPayload)
+      });
       
       if (response.ok) {
         successCount++;
@@ -1365,7 +1354,7 @@ async function enviarDocumentoPorEmail() {
     }
     alert(msg);
   } else {
-    alert("No se pudo enviar ningún correo real mediante Resend.\nDetalles:\n" + (failDetails.join('\n') || "No se detectaron destinatarios reales."));
+    alert("No se pudo enviar ningún correo real mediante Resend.\nDetalles:\n" + (failDetails.join('\n') || "No se detectaron destinatarios reales.") + "\n\nNota importante: Si estás usando una cuenta Sandbox de Resend:\n1. El remitente (From) en Ajustes DEBE ser exactamente 'onboarding@resend.dev'.\n2. El destinatario real en el formulario debe ser exactamente el mismo email con el que te registraste en Resend (el resto serán ignorados o rebotados por Resend).");
   }
   
   btn.disabled = false;
