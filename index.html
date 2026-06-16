@@ -573,7 +573,7 @@
         </div>
         <div class="card"><div class="cardh"><h3>Expedientes recientes</h3><a onclick="V('expedientes')">Ver todos</a></div>
           <table><thead><tr><th>Referencia</th><th>Requerido</th><th>Letrado</th><th>Estado</th><th>Plazo</th><th></th></tr></thead><tbody>
-            <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-014</span></td><td>Francisco García Pérez</td><td>J. García</td><td><span class="bd bd-open">Notificado</span></td><td style="color:#64748b;">30 días</td><td style="color:#2563eb;"><i class="ti ti-arrow-right"></i></td></tr>
+            <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-014</span></td><td>Francisco García Pérez</td><td>J. García</td><td><span class="bd bd-open">Notificado</span></td><td style="color:#64748b;">1 mes</td><td style="color:#2563eb;"><i class="ti ti-arrow-right"></i></td></tr>
             <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-013</span></td><td>María Pérez Soto</td><td>L. Romero</td><td><span class="bd bd-acc">Aceptado</span></td><td style="color:#94a3b8;">—</td><td style="color:#2563eb;"><i class="ti ti-arrow-right"></i></td></tr>
             <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-012</span></td><td>Talleres Núñez S.L.</td><td>J. García</td><td><span class="bd bd-noresp">Sin respuesta</span></td><td style="color:#94a3b8;">Vencido</td><td style="color:#2563eb;"><i class="ti ti-arrow-right"></i></td></tr>
             <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-011</span></td><td>Inversiones Lima S.A.</td><td>A. Díaz</td><td><span class="bd bd-not">Notificado</span></td><td style="color:#d97706;">4 días</td><td style="color:#2563eb;"><i class="ti ti-arrow-right"></i></td></tr>
@@ -602,7 +602,7 @@
           <table>
             <thead><tr><th style="width:32px;"><div class="checkbox-head" onclick="toggleAll(this)"></div></th><th>Referencia</th><th>Requerido</th><th>Letrado</th><th>Estado</th><th>Plazo</th></tr></thead>
             <tbody>
-              <tr><td><div class="checkbox" onclick="toggleOne(this)"></div></td><td onclick="V('detalle')" style="cursor:pointer;"><span class="ref">EXP-2026-014</span></td><td onclick="V('detalle')" style="cursor:pointer;">Francisco García Pérez</td><td>J. García</td><td><span class="bd bd-open">Notificado</span></td><td style="color:#64748b;">30 días</td></tr>
+              <tr><td><div class="checkbox" onclick="toggleOne(this)"></div></td><td onclick="V('detalle')" style="cursor:pointer;"><span class="ref">EXP-2026-014</span></td><td onclick="V('detalle')" style="cursor:pointer;">Francisco García Pérez</td><td>J. García</td><td><span class="bd bd-open">Notificado</span></td><td style="color:#64748b;">1 mes</td></tr>
               <tr><td><div class="checkbox" onclick="toggleOne(this)"></div></td><td onclick="V('detalle')" style="cursor:pointer;"><span class="ref">EXP-2026-013</span></td><td onclick="V('detalle')" style="cursor:pointer;">María Pérez Soto</td><td>L. Romero</td><td><span class="bd bd-acc">Aceptado</span></td><td style="color:#94a3b8;">—</td></tr>
               <tr><td><div class="checkbox" onclick="toggleOne(this)"></div></td><td onclick="V('detalle')" style="cursor:pointer;"><span class="ref">EXP-2026-012</span></td><td onclick="V('detalle')" style="cursor:pointer;">Talleres Núñez S.L.</td><td>J. García</td><td><span class="bd bd-noresp">Sin respuesta</span></td><td style="color:#94a3b8;">Vencido</td></tr>
               <tr><td><div class="checkbox" onclick="toggleOne(this)"></div></td><td onclick="V('detalle')" style="cursor:pointer;"><span class="ref">EXP-2026-011</span></td><td onclick="V('detalle')" style="cursor:pointer;">Inversiones Lima S.A.</td><td>A. Díaz</td><td><span class="bd bd-not">Notificado</span></td><td style="color:#d97706;">4 días</td></tr>
@@ -701,6 +701,13 @@
 
           <div class="fcard"><div class="fnum"><div class="fnumc">6</div><div class="fnumt" id="lbl-conflicto">Descripción del conflicto</div></div>
             <textarea class="ta" id="f-conflicto" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33 [Ejemplo].</textarea>
+            <div style="margin-top: 12px; display: flex; gap: 12px; background: var(--color-warning-light); border: 1px solid #fde68a; border-radius: var(--border-radius-md); padding: 12px 14px; color: #92400e; font-size: 11.5px; line-height: 1.5;">
+              <i class="ti ti-alert-triangle" style="font-size: 18px; color: var(--color-warning); flex-shrink: 0; margin-top: 1px;"></i>
+              <div>
+                <strong style="display: block; margin-bottom: 2px; color: #78350f;">Asistente de Redacción ("Petitum" Coincidente)</strong>
+                Asegúrate de que la descripción redactada arriba coincida de manera sustancial con el <strong>petitum</strong> (suplico) de la futura demanda civil. Algunos juzgados inadmiten demandas si aprecian discrepancias entre el objeto del intento MASC y el pleito judicial.
+              </div>
+            </div>
           </div>
 
           <div class="fcard" id="card-antecedentes"><div class="fnum"><div class="fnumc">7</div><div class="fnumt">Antecedentes</div></div>
@@ -807,7 +814,18 @@
         <div class="back" onclick="V('revisar')"><i class="ti ti-arrow-left"></i>Volver a edición</div>
         <div class="stepbar"><div class="stp"><div class="stpd done"></div><span class="stpl">1 · Datos</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd done"></div><span class="stpl">2 · Revisar y editar</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd cur"></div><span class="stpl cur">3 · Vista previa</span></div><div class="stpln"></div><div class="stp"><div class="stpd"></div><span class="stpl">4 · Notificar</span></div></div>
         <div class="ph"><div><h1>Documento final</h1><p>Así se verá el PDF que se enviará al requerido.</p></div></div>
-        <div class="pdftoolbar"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i><span id="p-pdf-filename">oferta-vinculante-EXP-2026-014.pdf</span></span><div class="tools"><span class="pgnum" id="p-pdf-pagenum-label">Página 1 de 3</span></div></div><div class="pdfwrap"><div class="pdfsheet" id="p-pdf-sheet1">
+        <div class="pdftoolbar" style="border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i><span id="p-pdf-filename">oferta-vinculante-EXP-2026-014.pdf</span></span><div class="tools"><span class="pgnum" id="p-pdf-pagenum-label">Página 1 de 3</span></div></div>
+        <div class="pdf-confidential-bar" id="pdf-confidential-bar" style="background: #fffbeb; border-left: 1px solid var(--color-border-primary); border-right: 1px solid var(--color-border-primary); border-bottom: 1px solid var(--color-border-primary); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #92400e; margin-bottom: 16px; border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);">
+          <span style="display:inline-flex; align-items:center; gap:6px; font-weight:500;">
+            <i class="ti ti-shield-lock" style="font-size:16px; color: var(--color-warning);"></i>
+            ¿Aportar al Juzgado? Enmascara la negociación confidencial (Art. 17.3 LO 1/2025)
+          </span>
+          <label style="display:inline-flex; align-items:center; gap:8px; font-weight:600; cursor:pointer; background:#fff; padding:6px 12px; border-radius:var(--border-radius-md); border:1px solid #fcd34d; user-select:none;">
+            <input type="checkbox" id="f-ocultar-confidencial" onchange="toggleMaskConfidential(this.checked)" style="cursor:pointer; width:14px; height:14px;">
+            Ocultar propuestas y cifras (Versión Juzgado)
+          </label>
+        </div>
+        <div class="pdfwrap"><div class="pdfsheet" id="p-pdf-sheet1">
             <h2 id="p-sol-titulo" style="text-align:center; font-weight:700; text-transform:uppercase;">Solicitud de mediación MASC</h2>
             
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; border: 1px solid var(--color-border-primary); padding: 14px; border-radius: var(--border-radius-md); background: #f8fafc; font-size: 11px;">
@@ -901,6 +919,14 @@
                 <li>***</li>
               </ol>
             </div>
+            
+            <div id="p-antecedentes-mask" style="display:none; border: 1.5px dashed var(--color-error); background: var(--color-error-light); padding: 16px; border-radius: var(--border-radius-md); color: var(--color-error); margin: 20px 0; text-align: center;">
+              <i class="ti ti-lock" style="font-size: 24px; margin-bottom: 8px; display: block; text-align: center; color: var(--color-error);"></i>
+              <strong style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px;">CONTENIDO CONFIDENCIAL OMITIDO (ART. 17.3 LO 1/2025)</strong>
+              <p style="font-size: 10px; margin: 0; text-indent: 0; text-align: justify; line-height: 1.4; color: #991b1b;">
+                Los antecedentes fácticos detallados y la narrativa de la disputa comercial quedan protegidos por el deber de confidencialidad MASC. Su revelación ante el tribunal civil está prohibida por ley.
+              </p>
+            </div>
             <span class="pagenum" id="p-pagenum2">Página 2 de 3</span>
           </div>
 
@@ -916,6 +942,14 @@
               <ul id="p-propuesta-ul">
                 <li>***</li>
               </ul>
+            </div>
+            
+            <div id="p-propuesta-mask" style="display:none; border: 1.5px dashed var(--color-error); background: var(--color-error-light); padding: 16px; border-radius: var(--border-radius-md); color: var(--color-error); margin: 20px 0; text-align: center;">
+              <i class="ti ti-shield-lock" style="font-size: 24px; margin-bottom: 8px; display: block; text-align: center; color: var(--color-error);"></i>
+              <strong style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px;">OFERTA ECONÓMICA Y CONCESIONES MASCARADAS</strong>
+              <p style="font-size: 10px; margin: 0; text-indent: 0; text-align: justify; line-height: 1.4; color: #991b1b;">
+                Las cifras, plazos de gracia y propuestas de transigencia económica están excluidas del expediente judicial de admisibilidad para preservar el secreto de las negociaciones extrajudiciales (Art. 17.3 Ley Orgánica 1/2025).
+              </p>
             </div>
 
             <div id="p-plazo-block">
@@ -966,7 +1000,7 @@
               <div class="fr"><span class="frl">Plantilla aplicada</span><span class="frv" style="cursor:pointer;color:#2563eb;" onclick="V('plantilla-detalle')">Oferta vinculante</span></div>
               <div class="fr"><span class="frl">Letrada</span><span class="frv">J. García · ICAM 78.214</span></div>
               <div class="fr"><span class="frl">Tipo de envío</span><span class="frv">BuroFax (QTSP)</span></div>
-              <div class="fr"><span class="frl">Plazo</span><span class="frv">1 mes · hasta 08/06/2026</span></div>
+              <div class="fr"><span class="frl">Plazo</span><span class="frv">1 mes natural · hasta 09/06/2026</span></div>
             </div>
             <div class="ic"><h4>Partes</h4>
               <div class="pty"><div class="ptyav" style="background:#eff6ff;color:#2563eb;">RH</div><div><div class="ptyn">Renting Grupo Hermes S.L.</div><div class="ptyr">Proponente · representada por J. Failde Sánchez</div></div></div>
@@ -981,7 +1015,7 @@
             </div>
           </div>
           <div>
-            <div class="deadline"><h4 style="font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#1d4ed8;margin-bottom:8px;">Plazo en curso</h4><div class="dlnum">30 días</div><div style="font-size:11px;color:#1d4ed8;margin-top:4px;">restantes · vence el 08/06/2026</div></div>
+            <div class="deadline"><h4 style="font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#1d4ed8;margin-bottom:8px;">Plazo en curso</h4><div class="dlnum">1 mes</div><div style="font-size:11px;color:#1d4ed8;margin-top:4px;">natural · vence el 09/06/2026</div></div>
             <div class="dossier"><h4 style="font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#94a3b8;margin-bottom:10px;">Dossier probatorio</h4>
               <div class="doc-r"><div class="doc-ic"><i class="ti ti-file-text"></i></div><div style="flex:1;"><div class="doc-nm">Oferta vinculante</div><div class="doc-mt">PDF firmado</div></div></div>
               <div class="doc-r"><div class="doc-ic"><i class="ti ti-certificate"></i></div><div style="flex:1;"><div class="doc-nm">Certificado de remisión</div><div class="doc-mt">QTSP · 09/05/2026</div></div></div>
@@ -1077,7 +1111,7 @@
           <table><thead><tr><th>Referencia</th><th>Requerido</th><th>Vence</th><th>Restante</th></tr></thead><tbody>
             <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-011</span></td><td>Inversiones Lima S.A.</td><td>25/05/2026</td><td style="color:#dc2626;font-weight:500;">4 días</td></tr>
             <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-008</span></td><td>Antonio Ledesma Gil</td><td>28/05/2026</td><td style="color:#d97706;font-weight:500;">7 días</td></tr>
-            <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-014</span></td><td>Francisco García Pérez</td><td>08/06/2026</td><td style="color:#64748b;">30 días</td></tr>
+            <tr class="clk" onclick="V('detalle')"><td><span class="ref">EXP-2026-014</span></td><td>Francisco García Pérez</td><td>09/06/2026</td><td style="color:#64748b;">1 mes</td></tr>
           </tbody></table>
         </div>
       </div>
@@ -1939,9 +1973,111 @@ function generarYMostrarDocumento() {
     document.getElementById('p-propuesta-ul').innerHTML = propHtml;
   }
   
+  // Reset confidentiality toggle (Item 2)
+  var maskCheck = document.getElementById('f-ocultar-confidencial');
+  if (maskCheck) maskCheck.checked = false;
+  toggleMaskConfidential(false);
+  
+  var confBar = document.getElementById('pdf-confidential-bar');
+  if (confBar) {
+    confBar.style.display = showOferta ? 'flex' : 'none';
+  }
+  
   document.getElementById('p-firma').textContent = letradoInfo.firma;
   
   V('revisar');
+}
+
+function toggleMaskConfidential(mask) {
+  var expId = document.getElementById('f-exp-id').value.replace(/\s*\[Ejemplo\]/g, '').trim();
+  var tipoSelect = document.getElementById('f-exp-tipo');
+  var isOferta = (tipoSelect && tipoSelect.value === 'oferta');
+  var expEstadoSelect = document.getElementById('f-exp-estado');
+  var isResultado = (expEstadoSelect && expEstadoSelect.value === 'resultado');
+  var showOferta = (isOferta && isResultado);
+  
+  var filenameEl = document.getElementById('p-pdf-filename');
+  
+  if (mask) {
+    // Hide confidential content blocks
+    var b1 = document.getElementById('p-antecedentes-block1');
+    if (b1) b1.style.display = 'none';
+    var b2 = document.getElementById('p-antecedentes-block2');
+    if (b2) b2.style.display = 'none';
+    var pb = document.getElementById('p-propuesta-block');
+    if (pb) pb.style.display = 'none';
+    
+    // Show legal warning masks
+    var m1 = document.getElementById('p-antecedentes-mask');
+    if (m1) m1.style.display = 'block';
+    var m2 = document.getElementById('p-propuesta-mask');
+    if (m2) m2.style.display = 'block';
+    
+    // Update filename to admissibility certificate
+    if (filenameEl) {
+      filenameEl.textContent = "certificado-admisibilidad-" + expId + ".pdf";
+    }
+  } else {
+    // Show confidential content blocks if they should be visible
+    var b1 = document.getElementById('p-antecedentes-block1');
+    if (b1) b1.style.display = showOferta ? 'block' : 'none';
+    var b2 = document.getElementById('p-antecedentes-block2');
+    if (b2) b2.style.display = showOferta ? 'block' : 'none';
+    var pb = document.getElementById('p-propuesta-block');
+    if (pb) pb.style.display = showOferta ? 'block' : 'none';
+    
+    // Hide legal warning masks
+    var m1 = document.getElementById('p-antecedentes-mask');
+    if (m1) m1.style.display = 'none';
+    var m2 = document.getElementById('p-propuesta-mask');
+    if (m2) m2.style.display = 'none';
+    
+    // Restore original filename
+    if (filenameEl) {
+      var prefix = showOferta ? "oferta-vinculante-" : "solicitud-mediacion-";
+      filenameEl.textContent = prefix + expId + ".pdf";
+    }
+  }
+}
+
+function calcularMesNatural(fechaBaseStr) {
+  var cleanStr = fechaBaseStr.replace(/\s*\[Ejemplo\]/g, '').trim();
+  var parts = cleanStr.split('/');
+  var date;
+  if (parts.length === 3) {
+    var day = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10) - 1;
+    var year = parseInt(parts[2], 10);
+    date = new Date(year, month, day);
+  } else {
+    var mesesMap = {
+      "enero": 0, "febrero": 1, "marzo": 2, "abril": 3, "mayo": 4, "junio": 5,
+      "julio": 6, "agosto": 7, "septiembre": 8, "octubre": 9, "noviembre": 10, "diciembre": 11
+    };
+    var words = cleanStr.toLowerCase().split(/\s+de\s+|\s+/);
+    if (words.length >= 3) {
+      var day = parseInt(words[0], 10);
+      var month = mesesMap[words[1]];
+      var year = parseInt(words[2], 10);
+      if (!isNaN(day) && month !== undefined && !isNaN(year)) {
+        date = new Date(year, month, day);
+      }
+    }
+    if (!date || isNaN(date.getTime())) {
+      date = new Date();
+    }
+  }
+  
+  var currentMonth = date.getMonth();
+  date.setMonth(currentMonth + 1);
+  if (date.getMonth() !== (currentMonth + 1) % 12) {
+    date.setDate(0);
+  }
+  
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0');
+  var yyyy = date.getFullYear();
+  return dd + '/' + mm + '/' + yyyy;
 }
 
 // Sincronización en tiempo real desde el editor editable (Paso 2) hacia la vista previa (Paso 3)
