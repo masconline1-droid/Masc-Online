@@ -621,40 +621,75 @@
         <div class="formwrap">
           <div class="tplbanner"><i class="ti ti-template"></i><div><div class="tt">Plantilla aplicada: Oferta vinculante confidencial</div><div class="td">Tus datos se inyectarán en los huecos (***) de la plantilla.</div></div><a onclick="V('plantillas')">Ver plantilla</a></div>
 
-          <div class="fcard"><div class="fnum"><div class="fnumc">1</div><div class="fnumt">Tipo de envío</div></div>
-            <div class="pill-group" id="tipo-env"><span class="pill sel" onclick="seleccionarPill(this,'tipo-env')">BuroFax</span><span class="pill" onclick="seleccionarPill(this,'tipo-env')">BuroMail</span></div>
+          <div class="fcard"><div class="fnum"><div class="fnumc">1</div><div class="fnumt">Datos del expediente</div></div>
+            <div class="frow">
+              <div><label class="lbl">ID Expediente</label><input class="inp" id="f-exp-id" value="EXP-2026-015"></div>
+              <div><label class="lbl">Fecha y hora</label><input class="inp" id="f-exp-fecha" value=""></div>
+            </div>
+            <div class="frow" style="margin-top: 10px;">
+              <div>
+                <label class="lbl">Tipo de expediente</label>
+                <select class="sel" id="f-exp-tipo" onchange="cambiarTipoExpediente(this.value)">
+                  <option value="oferta">Oferta vinculante confidencial</option>
+                  <option value="reclamacion">Reclamación de mediación</option>
+                </select>
+              </div>
+              <div>
+                <label class="lbl">Tipo de envío</label>
+                <div class="pill-group" id="tipo-env" style="margin-top: 4px;">
+                  <span class="pill sel" onclick="seleccionarPill(this,'tipo-env')">BuroFax</span>
+                  <span class="pill" onclick="seleccionarPill(this,'tipo-env')">BuroMail</span>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div class="fcard"><div class="fnum"><div class="fnumc">2</div><div class="fnumt">Letrado firmante</div></div>
-            <select class="sel" id="f-letrado"><option value="julia">Julia García Méndez — ICAM Col. 78.214</option><option value="luis">Luis Romero Vidal — ICAM Col. 65.901</option><option value="ana">Ana Díaz Fuentes — ICAM Col. 82.337</option><option value="pablo">Pablo Marín Ortega — ICAM Col. 90.118</option></select>
+            <select class="sel" id="f-letrado" onchange="actualizarPlantillaTextos()"><option value="jesus">Jesús Mª Blanco Charlo — ICAM Col. 8233</option><option value="julia">Julia García Méndez — ICAM Col. 78.214</option><option value="luis">Luis Romero Vidal — ICAM Col. 65.901</option><option value="ana">Ana Díaz Fuentes — ICAM Col. 82.337</option><option value="pablo">Pablo Marín Ortega — ICAM Col. 90.118</option></select>
             <div class="colegiado"><i class="ti ti-circle-check"></i>Sus datos se incorporan al bloque "Representante:" del documento</div>
           </div>
+
           <div class="fcard"><div class="fnum"><div class="fnumc">3</div><div class="fnumt">Solicitante (parte proponente)</div></div>
-            <div class="frow"><div><label class="lbl">Intervención</label><select class="sel" id="intervencion" onchange="toggleRep()"><option value="rep">En representación</option><option value="propio">En nombre propio</option></select></div><div><label class="lbl">Tipo</label><select class="sel" id="f-sol-tipo"><option>Persona jurídica</option><option>Persona física</option></select></div></div>
-            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" id="f-sol-nombre" value="Renting Grupo Hermes S.L."></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" id="f-sol-nif" value="B-87654321"></div></div>
+            <div class="frow"><div><label class="lbl">Intervención</label><select class="sel" id="intervencion" onchange="toggleRep(); actualizarPlantillaTextos();"><option value="rep">En representación</option><option value="propio">En nombre propio</option></select></div><div><label class="lbl">Tipo</label><select class="sel" id="f-sol-tipo" onchange="actualizarPlantillaTextos()"><option>Persona jurídica</option><option>Persona física</option></select></div></div>
+            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" id="f-sol-nombre" value="Renting Grupo Hermes S.L." oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" id="f-sol-nif" value="B-87654321"></div></div>
             <div class="ffull"><label class="lbl">Dirección</label><input class="inp" id="f-sol-dir" value="Av. de la Constitución 22, 41004 Sevilla"></div>
-            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" id="f-rep-nombre" value="José Failde Sánchez"></div><div><label class="lbl">DNI</label><input class="inp" id="f-rep-dni" value="28.456.789-Q"></div></div></div>
+            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" id="f-rep-nombre" value="José Failde Sánchez" oninput="actualizarPlantillaTextos()"></div><div><label class="lbl">DNI</label><input class="inp" id="f-rep-dni" value="28.456.789-Q"></div></div></div>
           </div>
+
           <div class="fcard"><div class="fnum"><div class="fnumc">4</div><div class="fnumt">Requerido (parte reclamada)</div></div>
-            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel" id="f-req-tipo"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" id="f-req-nombre" value="El Bekkali"></div></div>
+            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel" id="f-req-tipo" onchange="actualizarPlantillaTextos()"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" id="f-req-nombre" value="El Bekkali" oninput="actualizarPlantillaTextos()"></div></div>
             <div class="frow"><div><label class="lbl">DNI / NIE / NIF</label><input class="inp" id="f-req-nif" value="X-1234567-Z"></div><div><label class="lbl">Dirección</label><input class="inp" id="f-req-dir" value="Calle Asencio y Toledo 33, 41006 Sevilla"></div></div>
           </div>
-          <div class="fcard"><div class="fnum"><div class="fnumc">5</div><div class="fnumt">Descripción del conflicto</div></div>
+
+          <div class="fcard" id="card-datos-especificos"><div class="fnum"><div class="fnumc">5</div><div class="fnumt">Datos específicos del local y plazos</div></div>
+            <div class="frow">
+              <div><label class="lbl">Dirección del local en conflicto</label><input class="inp" id="f-local-dir" value="Calle Asencio y Toledo nº 33" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Fecha límite de desalojo propuesta</label><input class="inp" id="f-fecha-desalojo" value="30 de junio de 2026" oninput="actualizarPlantillaTextos()"></div>
+            </div>
+            <div class="frow" style="margin-top: 10px;">
+              <div><label class="lbl">Fecha de efectos de resolución contractual</label><input class="inp" id="f-fecha-resolucion" value="diciembre 2024" oninput="actualizarPlantillaTextos()"></div>
+              <div><label class="lbl">Nombre del propietario fallecido</label><input class="inp" id="f-arrendador-original" value="Don José Failde Villaraviz" oninput="actualizarPlantillaTextos()"></div>
+            </div>
+            <div class="frow" style="margin-top: 10px;">
+              <div><label class="lbl">Fecha de fallecimiento</label><input class="inp" id="f-fecha-fallecimiento" value="12 de marzo de 2023" oninput="actualizarPlantillaTextos()"></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div class="fcard"><div class="fnum"><div class="fnumc">6</div><div class="fnumt" id="lbl-conflicto">Descripción del conflicto</div></div>
             <textarea class="ta" id="f-conflicto" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</textarea>
           </div>
-          <div class="fcard"><div class="fnum"><div class="fnumc">6</div><div class="fnumt">Antecedentes</div></div>
-            <textarea class="ta" id="f-antecedentes" style="min-height:130px;">- 01/10/2016: contrato entre el Sr. El Bekkali y D. José Failde Villaraviz, arrendamiento por 3 años ampliable a una cuarta anualidad, prorrogable por tácita reconducción.
-- 21/04/2023: tras el fallecimiento del arrendador (12/03/2023), se notifica al arrendatario la subrogación, con cuenta bancaria y datos de contacto.
-- Abril 2024: tras la herencia, se aporta el inmueble a la sociedad Renting Grupo Hermes S.L.
-- 27/09/2024: burofax de resolución por expiración del término, con efectos a diciembre 2024.
-- 30/11/2025: sentencia que desestima la demanda por defecto de forma.
-- Antes de nueva demanda, se remite la presente oferta vinculante.</textarea>
+
+          <div class="fcard" id="card-antecedentes"><div class="fnum"><div class="fnumc">7</div><div class="fnumt">Antecedentes</div></div>
+            <textarea class="ta" id="f-antecedentes" style="min-height:130px;" oninput="document.getElementById('f-auto-textos').checked = false;"></textarea>
+            <div style="margin-top: 6px;"><label style="font-size:11px;font-weight:600;color:var(--color-text-muted);display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="f-auto-textos" checked style="cursor:pointer;" onchange="actualizarPlantillaTextos()"> Auto-generar textos redactados a partir de los datos introducidos</label></div>
           </div>
-          <div class="fcard"><div class="fnum"><div class="fnumc">7</div><div class="fnumt">Propuesta de resolución</div></div>
-            <textarea class="ta" id="f-propuesta" style="min-height:90px;">- Desalojo del local sito en C/ Asencio y Toledo 33 con anterioridad al 30/06/2026.
-- Condonación de daños y perjuicios devengados desde el cese del arrendamiento.
-- Declaración de inexistencia de cualquier otra responsabilidad adicional.</textarea>
+
+          <div class="fcard" id="card-propuesta"><div class="fnum"><div class="fnumc">8</div><div class="fnumt">Propuesta de resolución</div></div>
+            <textarea class="ta" id="f-propuesta" style="min-height:90px;" oninput="document.getElementById('f-auto-textos').checked = false;"></textarea>
           </div>
-          <div class="fcard"><div class="fnum"><div class="fnumc">8</div><div class="fnumt">Plataforma de pago</div></div>
+
+          <div class="fcard"><div class="fnum"><div class="fnumc">9</div><div class="fnumt">Plataforma de pago</div></div>
             <select class="sel" id="f-pago"><option>Stripe (tarjeta)</option><option>Bizum</option><option>Transferencia</option></select>
           </div>
           <div class="formfoot"><button class="btno" onclick="V('inicio')">Guardar borrador</button><button class="btn" onclick="generarYMostrarDocumento()">Generar documento<i class="ti ti-arrow-right"></i></button></div>
@@ -675,9 +710,9 @@
         <div class="preview">
           <div class="editbar"><span><i class="ti ti-edit"></i>Modo edición · campos en amarillo editables</span><span class="qtsp"><i class="ti ti-template"></i>Plantilla aplicada</span></div>
           <div class="docpaper">
-            <h2>Oferta vinculante confidencial</h2>
+            <h2 id="r-doc-titulo">Oferta vinculante confidencial</h2>
             <p class="ind" style="margin-top:14px;">En <span class="hl" id="r-ciudad" contenteditable="true">Sevilla</span>, a <span class="hl" id="r-fecha" contenteditable="true">9 de mayo de 2026</span>.</p>
-            <p class="ind">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
+            <p class="ind" id="r-intro-p">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
  
             <span class="dsec">Partes involucradas</span>
             <div class="partyhead">Parte reclamada:</div>
@@ -696,17 +731,23 @@
             <div class="pl">Email: <span class="hl" id="r-let-email">julia.garcia@garcia-asociados.es</span></div>
             <div class="pl">Teléfono: <span class="hl" id="r-let-tel">954 22 13 45</span></div>
  
-            <span class="dsec">Descripción del conflicto</span>
+            <span class="dsec" id="r-conflicto-header">Descripción del conflicto</span>
             <p class="ind" id="r-conflicto" contenteditable="true">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
  
-            <span class="dsec">Antecedentes y situación arrendaticia actual</span>
-            <p contenteditable="true" id="r-antecedentes" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
+            <div id="r-antecedentes-block">
+              <span class="dsec">Antecedentes y situación arrendaticia actual</span>
+              <p contenteditable="true" id="r-antecedentes" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
+            </div>
  
-            <span class="dsec">Propuesta de resolución</span>
-            <p contenteditable="true" id="r-propuesta" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
+            <div id="r-propuesta-block">
+              <span class="dsec">Propuesta de resolución</span>
+              <p contenteditable="true" id="r-propuesta" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
+            </div>
  
-            <span class="dsec" style="color:#94a3b8;">Plazo · Confidencialidad · Consecuencias del rechazo · Medios de comunicación · Conclusión</span>
-            <p style="color:#64748b;font-size:10.5px;background:#f8fafc;padding:8px 12px;border-radius:4px;text-indent:0;">[No editables] Texto legal fijo de la plantilla (arts. 17, 17.3, 5 LO 1/2025, art. 199 CP, art. 394.2 LEC).</p>
+            <div id="r-textofijo-block">
+              <span class="dsec" style="color:#94a3b8;">Plazo · Confidencialidad · Consecuencias del rechazo · Medios de comunicación · Conclusión</span>
+              <p style="color:#64748b;font-size:10.5px;background:#f8fafc;padding:8px 12px;border-radius:4px;text-indent:0;">[No editables] Texto legal fijo de la plantilla (arts. 17, 17.3, 5 LO 1/2025, art. 199 CP, art. 394.2 LEC).</p>
+            </div>
  
             <div class="firma"><div class="fname" id="r-firma">Firma Letrado Dña. Julia García Méndez</div></div>
           </div>
@@ -725,12 +766,12 @@
         <div class="back" onclick="V('revisar')"><i class="ti ti-arrow-left"></i>Volver a edición</div>
         <div class="stepbar"><div class="stp"><div class="stpd done"></div><span class="stpl">1 · Datos</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd done"></div><span class="stpl">2 · Revisar y editar</span></div><div class="stpln" style="background:#10b981;"></div><div class="stp"><div class="stpd cur"></div><span class="stpl cur">3 · Vista previa</span></div><div class="stpln"></div><div class="stp"><div class="stpd"></div><span class="stpl">4 · Notificar</span></div></div>
         <div class="ph"><div><h1>Documento final</h1><p>Así se verá el PDF que se enviará al requerido.</p></div></div>
-        <div class="pdftoolbar"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i>oferta-vinculante-EXP-2026-014.pdf</span><div class="tools"><span class="pgnum">Página 1 de 2</span><i class="ti ti-zoom-in"></i><i class="ti ti-zoom-out"></i><i class="ti ti-download"></i><i class="ti ti-printer"></i></div></div>
+        <div class="pdftoolbar"><span style="display:inline-flex;align-items:center;gap:6px;"><i class="ti ti-file-text" style="font-size:14px;color:#cbd5e1;"></i><span id="p-pdf-filename">oferta-vinculante-EXP-2026-014.pdf</span></span><div class="tools"><span class="pgnum" id="p-pdf-pagenum-label">Página 1 de 2</span><i class="ti ti-zoom-in"></i><i class="ti ti-zoom-out"></i><i class="ti ti-download"></i><i class="ti ti-printer"></i></div></div>
         <div class="pdfwrap">
           <div class="pdfsheet">
-            <h2>Oferta vinculante confidencial</h2>
+            <h2 id="p-doc-titulo">Oferta vinculante confidencial</h2>
             <p class="noindent" style="margin-top:18px;text-indent:28px;">En <span id="p-ciudad">Sevilla</span>, a <span id="p-fecha">9 de mayo de 2026</span>.</p>
-            <p>Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
+            <p id="p-intro-p">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
 
             <span class="dsec">Partes involucradas</span>
             <div class="partyblock">
@@ -755,48 +796,64 @@
               <span class="line">Teléfono: <span id="p-let-tel">954 22 13 45</span></span>
             </div>
 
-            <span class="dsec">Descripción del conflicto</span>
+            <span class="dsec" id="p-conflicto-header">Descripción del conflicto</span>
             <p id="p-conflicto">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
 
-            <span class="dsec">Antecedentes y situación arrendaticia actual</span>
-            <ol id="p-antecedentes-ol1">
-              <li>En fecha 1 de octubre de 2016, se rubricó contrato entre el Sr. El Bekkali y Don José Failde Villaraviz, progenitor de mi representado Don José Failde Sánchez, socio y administrador único de la mercantil Renting Grupo Hermes, S.L. Se acordaba el arrendamiento del local sito en Calle Asencio y Toledo 33, por un plazo de tres años, ampliable a una cuarta anualidad, prorrogable por tácita reconducción.</li>
-              <li>En fecha 21 de abril de 2023, tras el fallecimiento de Don José Failde Villaraviz el 12 de marzo de 2023, se notificó al arrendatario la subrogación del arrendador, exponiendo el número de cuenta bancaria para las rentas, la persona de contacto y los datos del nuevo arrendador.</li>
-              <li>Tras la finalización del procedimiento de herencia, el representado aportó el inmueble a su sociedad limitada en abril de 2024, siendo conocedor el arrendatario de dicha titularidad en todo momento, según constaba en la notificación de subrogación y en las transferencias bancarias del periodo.</li>
-            </ol>
-            <span class="pagenum">Página 1 de 2</span>
+            <div id="p-antecedentes-block1">
+              <span class="dsec">Antecedentes y situación arrendaticia actual</span>
+              <ol id="p-antecedentes-ol1">
+                <li>En fecha 1 de octubre de 2016, se rubricó contrato entre el Sr. El Bekkali y Don José Failde Villaraviz, progenitor de mi representado Don José Failde Sánchez, socio y administrador único de la mercantil Renting Grupo Hermes, S.L. Se acordaba el arrendamiento del local sito en Calle Asencio y Toledo 33, por un plazo de tres años, ampliable a una cuarta anualidad, prorrogable por tácita reconducción.</li>
+                <li>En fecha 21 de abril de 2023, tras el fallecimiento de Don José Failde Villaraviz el 12 de marzo de 2023, se notificó al arrendatario la subrogación del arrendador, exponiendo el número de cuenta bancaria para las rentas, la persona de contacto y los datos del nuevo arrendador.</li>
+                <li>Tras la finalización del procedimiento de herencia, el representado aportó el inmueble a su sociedad limitada en abril de 2024, siendo conocedor el arrendatario de dicha titularidad en todo momento, según constaba en la notificación de subrogación y en las transferencias bancarias del periodo.</li>
+              </ol>
+            </div>
+            <div class="firma" id="p-firma-sheet1-block" style="display:none; margin-top: 40px; border-top: 1px dashed var(--color-border-secondary); padding-top: 16px;">
+              <div class="fname" id="p-firma-sheet1">Firma Letrado D. Jesús María Blanco Charlo</div>
+            </div>
+            <span class="pagenum" id="p-pagenum1">Página 1 de 2</span>
           </div>
 
-          <div class="pdfsheet">
-            <ol start="4" id="p-antecedentes-ol2">
-              <li>Con fecha 27 de septiembre de 2024, se notificó al arrendatario, mediante burofax, la resolución del contrato por expiración del término pactado, con efectos a diciembre de la misma anualidad. La comunicación fue remitida por el letrado que suscribe, en nombre y representación del administrador único de la propietaria, para que no existiera duda sobre la legitimación y capacidad representativa.</li>
-              <li>Debido a que el arrendatario no desalojó el local de forma voluntaria, hubo que acudir a la tutela judicial, dictándose sentencia en fecha 30 de noviembre de 2025, que desestima la demanda interpuesta por defecto de forma y sin entrar en el fondo del asunto.</li>
-              <li>Que antes de interponer una nueva demanda, subsanando los defectos de forma, se le envía la presente oferta vinculante confidencial, con la correspondiente propuesta de acuerdo.</li>
-            </ol>
+          <div class="pdfsheet" id="p-pdf-sheet2">
+            <div id="p-antecedentes-block2">
+              <ol start="4" id="p-antecedentes-ol2">
+                <li>Con fecha 27 de septiembre de 2024, se notificó al arrendatario, mediante burofax, la resolución del contrato por expiración del término pactado, con efectos a diciembre de la misma anualidad. La comunicación fue remitida por el letrado que suscribe, en nombre y representación del administrador único de la propietaria, para que no existiera duda sobre la legitimación y capacidad representativa.</li>
+                <li>Debido a que el arrendatario no desalojó el local de forma voluntaria, hubo que acudir a la tutela judicial, dictándose sentencia en fecha 30 de noviembre de 2025, que desestima la demanda interpuesta por defecto de forma y sin entrar en el fondo del asunto.</li>
+                <li>Que antes de interponer una nueva demanda, subsanando los defectos de forma, se le envía la presente oferta vinculante confidencial, con la correspondiente propuesta de acuerdo.</li>
+              </ol>
+            </div>
 
-            <span class="dsec">Propuesta de resolución</span>
-            <ul id="p-propuesta-ul">
-              <li>El Sr. El Bekkali deberá desalojar el local comercial sito en Sevilla, Calle Asencio y Toledo núm. 33, con anterioridad al día 30 de junio de 2026.</li>
-              <li>El proponente condonará los daños y perjuicios económicos devengados desde la fecha en que el arrendatario debió desalojar el local, sin que haya abonado suma alguna en concepto de la ocupación precaria del inmueble.</li>
-              <li>Finalmente, se contrae el compromiso de cumplimiento y ambas partes declaran la inexistencia de cualquier otra responsabilidad adicional una vez aceptada la propuesta y formalizado el acuerdo.</li>
-            </ul>
+            <div id="p-propuesta-block">
+              <span class="dsec">Propuesta de resolución</span>
+              <ul id="p-propuesta-ul">
+                <li>El Sr. El Bekkali deberá desalojar el local comercial sito en Sevilla, Calle Asencio y Toledo núm. 33, con anterioridad al día 30 de junio de 2026.</li>
+                <li>El proponente condonará los daños y perjuicios económicos devengados desde la fecha en que el arrendatario debió desalojar el local, sin que haya abonado suma alguna en concepto de la ocupación precaria del inmueble.</li>
+                <li>Finalmente, se contrae el compromiso de cumplimiento y ambas partes declaran la inexistencia de cualquier otra responsabilidad adicional una vez aceptada la propuesta y formalizado el acuerdo.</li>
+              </ul>
+            </div>
 
-            <span class="dsec">Plazo de respuesta</span>
-            <p>De conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, se concede un plazo de un mes desde la recepción de la presente oferta para su aceptación o rechazo por escrito. En caso de ausencia de respuesta en dicho período, se entenderá que la oferta ha sido rechazada sin efectos vinculantes para la parte oferente.</p>
+            <div id="p-plazo-block">
+              <span class="dsec">Plazo de respuesta</span>
+              <p>De conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, se concede un plazo de un mes desde la recepción de la presente oferta para su aceptación o rechazo por escrito. En caso de ausencia de respuesta en dicho período, se entenderá que la oferta ha sido rechazada sin efectos vinculantes para la parte oferente.</p>
+            </div>
 
-            <span class="dsec">Confidencialidad y restricciones de uso</span>
-            <p>La presente oferta y sus términos no podrán ser divulgados ni utilizados como prueba en un procedimiento judicial, salvo para acreditar el cumplimiento del requisito de procedibilidad previsto en el artículo 5 de la Ley Orgánica 1/2025.</p>
-            <p>La confidencialidad de este documento está protegida por el secreto profesional y las disposiciones del artículo 17.3 de la citada Ley, así como por el artículo 199 del Código Penal, sancionando su divulgación indebida.</p>
+            <div id="p-confidencialidad-block">
+              <span class="dsec">Confidencialidad y restricciones de uso</span>
+              <p>La presente oferta y sus términos no podrán ser divulgados ni utilizados como prueba en un procedimiento judicial, salvo para acreditar el cumplimiento del requisito de procedibilidad previsto en el artículo 5 de la Ley Orgánica 1/2025.</p>
+              <p>La confidencialidad de este documento está protegida por el secreto profesional y las disposiciones del artículo 17.3 de la citada Ley, así como por el artículo 199 del Código Penal, sancionando su divulgación indebida.</p>
+            </div>
 
-            <span class="dsec">Consecuencias del rechazo injustificado</span>
-            <p>En caso de rechazo infundado o falta de respuesta y posterior resolución judicial que otorgue una cuantía igual o inferior a la propuesta, la parte proponente podrá solicitar la imposición de costas procesales conforme al artículo 394.2 de la Ley de Enjuiciamiento Civil, según la reforma introducida por la Ley Orgánica 1/2025.</p>
+            <div id="p-costas-block">
+              <span class="dsec">Consecuencias del rechazo injustificado</span>
+              <p>En caso de rechazo infundado o falta de respuesta y posterior resolución judicial que otorgue una cuantía igual o inferior a la propuesta, la parte proponente podrá solicitar la imposición de costas procesales conforme al artículo 394.2 de la Ley de Enjuiciamiento Civil, según la reforma introducida por la Ley Orgánica 1/2025.</p>
+            </div>
 
-            <span class="dsec">Medios de comunicación y remisión</span>
-            <p>Se envía la oferta por un medio que acredita la remisión como es el presente BUROFAX. Toda respuesta o comunicación respecto a esta oferta deberá ser remitida a la atención del letrado arriba referenciado.</p>
-
-            <span class="dsec">Conclusión</span>
-            <p>Se insta a la parte reclamada a valorar esta propuesta en aras de una solución rápida, eficiente y extrajudicial del conflicto, evitando costes adicionales derivados del procedimiento judicial.</p>
-            <p>Sin otro particular, en espera de su respuesta, reciba un cordial saludo.</p>
+            <div id="p-conclusiones-block">
+              <span class="dsec">Medios de comunicación y remisión</span>
+              <p>Se envía la oferta por un medio que acredita la remisión como es el presente BUROFAX. Toda respuesta o comunicación respecto a esta oferta deberá ser remitida a la atención del letrado arriba referenciado.</p>
+              <span class="dsec">Conclusión</span>
+              <p>Se insta a la parte reclamada a valorar esta propuesta en aras de una solución rápida, eficiente y extrajudicial del conflicto, evitando costes adicionales derivados del procedimiento judicial.</p>
+              <p>Sin otro particular, en espera de su respuesta, reciba un cordial saludo.</p>
+            </div>
 
             <div class="firma"><div class="fname" id="p-firma">Firma Letrado Dña. Julia María García Méndez</div></div>
             <span class="pagenum">Página 2 de 2</span>
@@ -999,6 +1056,30 @@ function V(id){
   document.getElementById('v-'+id).classList.add('on');
   var map={inicio:'inicio',expedientes:'exp',nuevo:'exp',revisar:'exp',vista:'exp',detalle:'exp',letrados:'letrados',plantillas:'plantillas','plantilla-detalle':'plantillas',plazos:'plazos',facturacion:'facturacion',ajustes:'ajustes'};
   for(var i=1;i<=12;i++){var el=document.getElementById('sb'+i); if(el) el.innerHTML=sidebar(map[id]);}
+  
+  if (id === 'nuevo') {
+    var randId = "EXP-2026-" + String(Math.floor(Math.random() * 900) + 100);
+    var expIdEl = document.getElementById('f-exp-id');
+    if (expIdEl) expIdEl.value = randId;
+    
+    var expFechaEl = document.getElementById('f-exp-fecha');
+    if (expFechaEl) {
+      var now = new Date();
+      var timeStr = now.toTimeString().substring(0, 5);
+      expFechaEl.value = getFormattedDate() + " " + timeStr;
+    }
+    
+    var letEl = document.getElementById('f-letrado');
+    if (letEl) letEl.value = 'jesus';
+    
+    var tipoSelect = document.getElementById('f-exp-tipo');
+    if (tipoSelect) {
+      tipoSelect.value = 'oferta';
+      if (typeof cambiarTipoExpediente === 'function') {
+        cambiarTipoExpediente('oferta');
+      }
+    }
+  }
 }
 function seleccionarPill(el,groupId){ document.querySelectorAll('#'+groupId+' .pill').forEach(function(p){p.classList.remove('sel');}); el.classList.add('sel'); }
 function toggleRep(){ var v=document.getElementById('intervencion').value; document.getElementById('repbox').style.display = v==='rep'?'block':'none'; }
@@ -1008,6 +1089,15 @@ function updateSelCount(){ var n=document.querySelectorAll('#v-expedientes tbody
 
 // Datos profesionales de letrados
 var letrados = {
+  jesus: {
+    nombre: "Jesús Mª Blanco Charlo",
+    trato: "Don",
+    colegio: "ICAM Col. 8233",
+    dir: "Calle Amador de los Ríos Nº 23-25 1º EFG, 41003 Sevilla",
+    email: "jesus@blanco-abogados.es",
+    tel: "954536142",
+    firma: "Firma Letrado D. Jesús María Blanco Charlo"
+  },
   julia: {
     nombre: "Julia García Méndez",
     trato: "Doña",
@@ -1065,10 +1155,88 @@ function getTrato(tipo, nombre) {
   }
 }
 
+function cambiarTipoExpediente(tipo) {
+  var isOferta = (tipo === 'oferta');
+  
+  var de = document.getElementById('card-datos-especificos');
+  var ant = document.getElementById('card-antecedentes');
+  var prop = document.getElementById('card-propuesta');
+  var lblConf = document.getElementById('lbl-conflicto');
+  
+  if (de) de.style.display = isOferta ? 'block' : 'none';
+  if (ant) ant.style.display = isOferta ? 'block' : 'none';
+  if (prop) prop.style.display = isOferta ? 'block' : 'none';
+  
+  if (lblConf) {
+    lblConf.textContent = isOferta ? 'Descripción de la oferta vinculante' : 'Descripción de la reclamación';
+  }
+  
+  actualizarPlantillaTextos();
+}
+
+function actualizarPlantillaTextos() {
+  var autoEl = document.getElementById('f-auto-textos');
+  if (!autoEl || !autoEl.checked) return;
+  
+  var tipoSelect = document.getElementById('f-exp-tipo');
+  if (!tipoSelect || tipoSelect.value !== 'oferta') return;
+  
+  var reqNombre = document.getElementById('f-req-nombre').value || "El Bekkali";
+  var solNombre = document.getElementById('f-sol-nombre').value || "Renting Grupo Hermes S.L.";
+  var localDir = document.getElementById('f-local-dir').value || "Calle Asencio y Toledo nº 33";
+  var fechaDesalojo = document.getElementById('f-fecha-desalojo').value || "30 de junio de 2026";
+  var fechaResolucion = document.getElementById('f-fecha-resolucion').value || "diciembre 2024";
+  var arrendadorOriginal = document.getElementById('f-arrendador-original').value || "Don José Failde Villaraviz";
+  var fechaFallecimiento = document.getElementById('f-fecha-fallecimiento').value || "12 de marzo de 2023";
+  
+  var intervencion = document.getElementById('intervencion').value;
+  var repNombre = document.getElementById('f-rep-nombre').value || "José Failde Sánchez";
+  
+  var solPhrase = "";
+  var solRepPhrase = "";
+  if (intervencion === 'rep') {
+    solPhrase = arrendadorOriginal + ", progenitor de mi representado Don " + repNombre + ", el cual es socio y administrador único de la mercantil " + solNombre;
+    solRepPhrase = "Don " + repNombre;
+  } else {
+    solPhrase = arrendadorOriginal + ", progenitor de " + solNombre;
+    solRepPhrase = solNombre;
+  }
+  
+  var ants = [];
+  ants.push("En fecha 1 de octubre de 2016, se rubricó contrato entre el Sr. " + reqNombre + " y " + solPhrase + ". En dicho contrato, se acordaba el arrendamiento del local sito en " + localDir + ", por un plazo de tres años, ampliable a una cuarta anualidad. Tras el transcurso de dicho término, el contrato se prorroga por tácita reconducción hasta la sanción por alguna de las partes.");
+  
+  ants.push("En fecha 21 de abril de 2023, tras el fallecimiento de " + arrendadorOriginal + " el día " + fechaFallecimiento + ", se notificó al arrendatario la subrogación del arrendador, exponiendo el número de cuenta bancaria donde realizar los ingresos de las rentas del alquiler, la persona de contacto para solventar incidencias en el inmueble y datos de contacto del arrendador.");
+  
+  ants.push("Tras la finalización del procedimiento de herencia, " + solRepPhrase + " aportó el inmueble a su sociedad limitada " + solNombre + " en abril de 2024, siendo conocedor el arrendatario de dicha situación de titularidad en todo momento, puesto que así se reflejaba tanto en la notificación de subrogación realizada en abril de 2023, como en las continuas transferencias bancarias realizadas durante el referido periodo, en las cuales constaba como titular la mercantil " + solNombre + ".");
+  
+  ants.push("Con fecha 27 de septiembre de 2024, se notificó al arrendatario, mediante burofax, la resolución del contrato de arrendamiento por expiración del término pactado, con efectos a " + fechaResolucion + ". Dicha comunicación fue remitida por el letrado que suscribe, actuando en nombre y representación de " + solRepPhrase + " (o " + solNombre + "), con la expresa finalidad de que no existiera duda alguna acerca de la legitimación y capacidad representativa en cuya virtud se actuaba frente al arrendatario.");
+  
+  ants.push("Debido a que el arrendatario no desalojó el local de negocio de forma voluntaria, hubo que acudir a la tutela judicial, dictándose sentencia en fecha 30 de noviembre de 2025, por medio de la cual se desestima la demanda interpuesta por defecto de forma y sin entrar en el fondo del asunto.");
+  
+  ants.push("Que antes de interponer una nueva demanda, subsanando los defectos de forma, se le envía la presente oferta vinculante confidencial, con la correspondiente propuesta de acuerdo.");
+  
+  var antsText = ants.join("\n\n");
+  var antEl = document.getElementById('f-antecedentes');
+  if (antEl) antEl.value = antsText;
+  
+  var props = [];
+  props.push("El Sr. " + reqNombre + " deberá desalojar el local comercial sito en Sevilla, calle " + localDir.replace(/^[Ss]evilla,?\s*/, '').replace(/^[Cc]alle\s*/, '') + ", con anterioridad al día " + fechaDesalojo + ".");
+  props.push("El proponente condonará los daños y perjuicios económicos devengados desde el " + fechaResolucion + " que el arrendatario debió desalojar el local, sin que haya abonado suma alguna desde esa fecha en concepto de la ocupación precaria del inmueble.");
+  props.push("Finalmente, se contrae el compromiso de cumplimiento y se señala que ambas partes declaran la inexistencia de cualquier otra responsabilidad adicional una vez aceptada la propuesta y formalizado el acuerdo.");
+  
+  var propsText = props.join("\n\n");
+  var propEl = document.getElementById('f-propuesta');
+  if (propEl) propEl.value = propsText;
+}
+
 // Generación dinámica del documento a partir del formulario
 function generarYMostrarDocumento() {
+  var expId = document.getElementById('f-exp-id').value;
   var letradoKey = document.getElementById('f-letrado').value;
   var letradoInfo = letrados[letradoKey];
+  
+  var tipoSelect = document.getElementById('f-exp-tipo');
+  var isOferta = (tipoSelect && tipoSelect.value === 'oferta');
   
   var intervencion = document.getElementById('intervencion').value;
   var solTipo = document.getElementById('f-sol-tipo').value;
@@ -1085,8 +1253,8 @@ function generarYMostrarDocumento() {
   var reqDir = document.getElementById('f-req-dir').value;
   
   var conflicto = document.getElementById('f-conflicto').value;
-  var antecedentes = document.getElementById('f-antecedentes').value;
-  var propuesta = document.getElementById('f-propuesta').value;
+  var antecedentes = isOferta ? document.getElementById('f-antecedentes').value : "";
+  var propuesta = isOferta ? document.getElementById('f-propuesta').value : "";
   
   var fechaText = getFormattedDate();
   var ciudadText = "Sevilla";
@@ -1094,6 +1262,17 @@ function generarYMostrarDocumento() {
   // Paso 2 (Editable)
   document.getElementById('r-ciudad').textContent = ciudadText;
   document.getElementById('r-fecha').textContent = fechaText;
+  
+  // Titulos y Parrafos de introduccion dinámicos
+  var docTitulo = isOferta ? "Oferta vinculante confidencial" : "Solicitud de mediación MASC";
+  var introText = isOferta 
+    ? "Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal."
+    : "Que por medio del presente escrito se formaliza la solicitud de inicio del procedimiento de mediación MASC, de conformidad con lo previsto en la Ley Orgánica 1/2025, de 3 de enero, instando a la designación de persona mediadora para el inicio del procedimiento.";
+  
+  var rDocTituloEl = document.getElementById('r-doc-titulo');
+  if (rDocTituloEl) rDocTituloEl.textContent = docTitulo;
+  var rIntroPEl = document.getElementById('r-intro-p');
+  if (rIntroPEl) rIntroPEl.innerHTML = introText;
   
   var solTrato = getTrato(solTipo, solNombre);
   var solTratoEl = document.getElementById('r-sol-trato');
@@ -1126,12 +1305,31 @@ function generarYMostrarDocumento() {
   document.getElementById('r-let-email').textContent = letradoInfo.email;
   document.getElementById('r-let-tel').textContent = letradoInfo.tel;
   
+  var rConfHeaderEl = document.getElementById('r-conflicto-header');
+  if (rConfHeaderEl) {
+    rConfHeaderEl.textContent = isOferta ? "Descripción del conflicto" : "Descripción de la reclamación";
+  }
   document.getElementById('r-conflicto').textContent = conflicto;
+  
+  // Toggles de visibilidad en Paso 2
+  var rAntBlock = document.getElementById('r-antecedentes-block');
+  var rPropBlock = document.getElementById('r-propuesta-block');
+  var rFixedBlock = document.getElementById('r-textofijo-block');
+  
+  if (rAntBlock) rAntBlock.style.display = isOferta ? 'block' : 'none';
+  if (rPropBlock) rPropBlock.style.display = isOferta ? 'block' : 'none';
+  if (rFixedBlock) rFixedBlock.style.display = isOferta ? 'block' : 'none';
+  
   document.getElementById('r-antecedentes').textContent = antecedentes;
   document.getElementById('r-propuesta').textContent = propuesta;
   document.getElementById('r-firma').textContent = letradoInfo.firma;
   
   // Paso 3 (Preview)
+  var pDocTituloEl = document.getElementById('p-doc-titulo');
+  if (pDocTituloEl) pDocTituloEl.textContent = docTitulo;
+  var pIntroPEl = document.getElementById('p-intro-p');
+  if (pIntroPEl) pIntroPEl.innerHTML = introText;
+  
   document.getElementById('p-ciudad').textContent = ciudadText;
   document.getElementById('p-fecha').textContent = fechaText;
   
@@ -1165,44 +1363,80 @@ function generarYMostrarDocumento() {
   document.getElementById('p-let-email').textContent = letradoInfo.email;
   document.getElementById('p-let-tel').textContent = letradoInfo.tel;
   
+  var pConfHeaderEl = document.getElementById('p-conflicto-header');
+  if (pConfHeaderEl) {
+    pConfHeaderEl.textContent = isOferta ? "Descripción del conflicto" : "Descripción de la reclamación";
+  }
   document.getElementById('p-conflicto').textContent = conflicto;
   
-  // Antecedentes list parsing
-  var antLines = antecedentes.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+  // Archivo PDF e indicadores de paginas
+  var pdfFilenameEl = document.getElementById('p-pdf-filename');
+  if (pdfFilenameEl) {
+    var prefix = isOferta ? "oferta-vinculante-" : "solicitud-mediacion-";
+    pdfFilenameEl.textContent = prefix + expId + ".pdf";
+  }
+  
+  var pdfPagenumLabel = document.getElementById('p-pdf-pagenum-label');
+  if (pdfPagenumLabel) {
+    pdfPagenumLabel.textContent = isOferta ? "Página 1 de 2" : "Página 1 de 1";
+  }
+  
+  var pagenum1El = document.getElementById('p-pagenum1');
+  if (pagenum1El) {
+    pagenum1El.textContent = isOferta ? "Página 1 de 2" : "Página 1 de 1";
+  }
+  
+  // Toggles de bloques de previsualización
+  var pAntBlock1 = document.getElementById('p-antecedentes-block1');
+  var pSheet2 = document.getElementById('p-pdf-sheet2');
+  var pFirmaSheet1Block = document.getElementById('p-firma-sheet1-block');
+  
+  if (pAntBlock1) pAntBlock1.style.display = isOferta ? 'block' : 'none';
+  if (pSheet2) pSheet2.style.display = isOferta ? 'block' : 'none';
+  if (pFirmaSheet1Block) {
+    pFirmaSheet1Block.style.display = isOferta ? 'none' : 'block';
+    var pFirmaSheet1 = document.getElementById('p-firma-sheet1');
+    if (pFirmaSheet1) pFirmaSheet1.textContent = letradoInfo.firma;
+  }
+  
+  if (isOferta) {
+    // Antecedentes list parsing
+    var antLines = antecedentes.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+                               .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
+                               .filter(function(l){return l.length > 0;});
+    
+    var antP1Html = '';
+    for (var i = 0; i < Math.min(3, antLines.length); i++) {
+      antP1Html += '<li>' + antLines[i] + '</li>';
+    }
+    document.getElementById('p-antecedentes-ol1').innerHTML = antP1Html;
+    
+    var antP2Html = '';
+    for (var i = 3; i < antLines.length; i++) {
+      antP2Html += '<li>' + antLines[i] + '</li>';
+    }
+    var pOl2 = document.getElementById('p-antecedentes-ol2');
+    if (pOl2) {
+      if (antP2Html) {
+        pOl2.innerHTML = antP2Html;
+        pOl2.style.display = 'block';
+      } else {
+        pOl2.innerHTML = '';
+        pOl2.style.display = 'none';
+      }
+    }
+    
+    // Propuesta list parsing
+    var propLines = propuesta.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
                              .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
                              .filter(function(l){return l.length > 0;});
-  
-  var antP1Html = '';
-  for (var i = 0; i < Math.min(3, antLines.length); i++) {
-    antP1Html += '<li>' + antLines[i] + '</li>';
+    
+    var propHtml = '';
+    propLines.forEach(function(cl) {
+      propHtml += '<li>' + cl + '</li>';
+    });
+    document.getElementById('p-propuesta-ul').innerHTML = propHtml;
   }
-  document.getElementById('p-antecedentes-ol1').innerHTML = antP1Html;
-  
-  var antP2Html = '';
-  for (var i = 3; i < antLines.length; i++) {
-    antP2Html += '<li>' + antLines[i] + '</li>';
-  }
-  var pOl2 = document.getElementById('p-antecedentes-ol2');
-  if (pOl2) {
-    if (antP2Html) {
-      pOl2.innerHTML = antP2Html;
-      pOl2.style.display = 'block';
-    } else {
-      pOl2.innerHTML = '';
-      pOl2.style.display = 'none';
-    }
-  }
-  
-  // Propuesta list parsing
-  var propLines = propuesta.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
-                           .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
-                           .filter(function(l){return l.length > 0;});
-  
-  var propHtml = '';
-  propLines.forEach(function(cl) {
-    propHtml += '<li>' + cl + '</li>';
-  });
-  document.getElementById('p-propuesta-ul').innerHTML = propHtml;
   
   document.getElementById('p-firma').textContent = letradoInfo.firma;
   
