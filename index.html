@@ -183,7 +183,7 @@
   }
   
   .top { 
-    padding: 14px 28px; 
+    padding: 10px 20px; 
     background: var(--color-bg-card); 
     border-bottom: 1px solid var(--color-border-primary); 
     display: flex; 
@@ -198,24 +198,24 @@
   .topr .bell { color: var(--color-text-light); cursor: pointer; font-size: 20px; transition: color var(--transition-fast), transform var(--transition-fast); }
   .topr .bell:hover { color: var(--color-primary); transform: rotate(15deg); }
   
-  .body { padding: 28px 32px; flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; }
+  .body { padding: 12px 20px; flex: 1; max-width: 1200px; width: 100%; margin: 0 auto; }
   
-  .ph { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; gap: 16px; }
-  .ph h1 { font-size: 24px; font-weight: 700; color: var(--color-text-main); letter-spacing: -0.03em; } 
-  .ph p { font-size: 13px; color: var(--color-text-muted); margin-top: 4px; }
+  .ph { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+  .ph h1 { font-size: 22px; font-weight: 700; color: var(--color-text-main); letter-spacing: -0.03em; } 
+  .ph p { font-size: 12px; color: var(--color-text-muted); margin-top: 2px; }
   
   .btn { 
     background: var(--color-primary); 
     color: #fff; 
     border: none; 
-    padding: 10px 18px; 
+    padding: 8px 14px; 
     border-radius: var(--border-radius-md); 
-    font-size: 13px; 
+    font-size: 12.5px; 
     font-weight: 600; 
     cursor: pointer; 
     display: inline-flex; 
     align-items: center; 
-    gap: 8px; 
+    gap: 6px; 
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
   } 
@@ -227,20 +227,20 @@
   .btn:active {
     transform: translateY(0);
   }
-  .btn i { font-size: 16px; }
+  .btn i { font-size: 15px; }
   
   .btno { 
     background: var(--color-bg-card); 
     border: 1px solid var(--color-border-secondary); 
     color: var(--color-text-main); 
-    padding: 10px 18px; 
+    padding: 8px 14px; 
     border-radius: var(--border-radius-md); 
-    font-size: 13px; 
+    font-size: 12.5px; 
     font-weight: 600; 
     cursor: pointer; 
     display: inline-flex; 
     align-items: center; 
-    gap: 8px; 
+    gap: 6px; 
     transition: all var(--transition-fast);
   }
   .btno:hover:not(:disabled) { background: var(--color-border-tertiary); border-color: var(--color-text-light); transform: translateY(-1px); } 
@@ -251,14 +251,14 @@
     background: var(--color-accent); 
     color: #fff; 
     border: none; 
-    padding: 10px 18px; 
+    padding: 8px 14px; 
     border-radius: var(--border-radius-md); 
-    font-size: 13px; 
+    font-size: 12.5px; 
     font-weight: 600; 
     cursor: pointer; 
     display: inline-flex; 
     align-items: center; 
-    gap: 8px; 
+    gap: 6px; 
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
   } 
@@ -271,12 +271,12 @@
     transform: translateY(0);
   }
   
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
   .st { 
     background: var(--color-bg-card); 
     border: 1px solid var(--color-border-primary); 
     border-radius: var(--border-radius-lg); 
-    padding: 18px; 
+    padding: 10px 14px; 
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   }
@@ -285,34 +285,34 @@
     box-shadow: var(--shadow-md);
   }
   .stic { 
-    width: 36px; 
-    height: 36px; 
+    width: 28px; 
+    height: 28px; 
     background: var(--color-accent-light); 
     border-radius: var(--border-radius-md); 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     color: var(--color-accent); 
-    margin-bottom: 12px; 
-    font-size: 18px;
+    margin-bottom: 4px; 
+    font-size: 14px;
   } 
-  .stl { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; color: var(--color-text-light); text-transform: uppercase; }
-  .stv { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.1; margin-top: 4px; letter-spacing: -0.02em; }
+  .stl { font-size: 9px; font-weight: 600; letter-spacing: 0.05em; color: var(--color-text-light); text-transform: uppercase; }
+  .stv { font-size: 20px; font-weight: 700; color: var(--color-text-main); line-height: 1.1; margin-top: 2px; letter-spacing: -0.02em; }
   
-  .stt { font-size: 11px; margin-top: 6px; color: var(--color-text-light); } 
+  .stt { font-size: 10px; margin-top: 3px; color: var(--color-text-light); } 
   .stt.g { color: var(--color-success); font-weight: 500; } 
   .stt.w { color: var(--color-warning); font-weight: 500; }
   
-  .card { background: var(--color-bg-card); border: 1px solid var(--color-border-primary); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 24px; }
-  .cardh { padding: 14px 20px; border-bottom: 1px solid var(--color-border-primary); background: var(--color-border-tertiary); display: flex; align-items: center; justify-content: space-between; }
-  .cardh h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-main); } 
-  .cardh a { font-size: 12px; color: var(--color-accent); font-weight: 600; cursor: pointer; transition: color var(--transition-fast); }
+  .card { background: var(--color-bg-card); border: 1px solid var(--color-border-primary); border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 12px; }
+  .cardh { padding: 8px 12px; border-bottom: 1px solid var(--color-border-primary); background: var(--color-border-tertiary); display: flex; align-items: center; justify-content: space-between; }
+  .cardh h3 { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-main); } 
+  .cardh a { font-size: 11px; color: var(--color-accent); font-weight: 600; cursor: pointer; transition: color var(--transition-fast); }
   .cardh a:hover { color: var(--color-accent-hover); text-decoration: underline; }
   
   .table-wrapper { overflow-x: auto; width: 100%; }
   table { width: 100%; border-collapse: collapse; text-align: left; }
-  th { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); padding: 12px 20px; background: var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-primary); }
-  td { padding: 14px 20px; font-size: 13px; border-bottom: 1px solid var(--color-border-primary); color: var(--color-text-main); transition: background-color var(--transition-fast); } 
+  th { font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); padding: 6px 12px; background: var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-primary); }
+  td { padding: 6px 12px; font-size: 12.5px; border-bottom: 1px solid var(--color-border-primary); color: var(--color-text-main); transition: background-color var(--transition-fast); } 
   tr:last-child td { border-bottom: none; }
   .clk { cursor: pointer; } 
   .clk:hover td { background: var(--color-border-tertiary); }
@@ -549,8 +549,6 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 
-<h2 class="sr-only">MASC Digital: documento fiel a la plantilla subida, flujo de 4 pasos, pool de expedientes y una sola plantilla.</h2>
-
 <div class="app">
 
 <div class="view on" id="v-inicio">
@@ -558,7 +556,7 @@
     <div class="main">
       <div class="top"><div class="toptitle"><i class="ti ti-home"></i>Inicio</div><div class="topr"><i class="ti ti-bell bell"></i></div></div>
       <div class="body">
-        <div class="ph"><div><h1>Hola, Julia</h1><p>Despacho García &amp; Asociados.</p></div><button class="btn" onclick="V('nuevo')"><i class="ti ti-plus"></i>Nuevo expediente</button></div>
+        <div class="ph"><div><h1>Hola, Julia</h1><p>Despacho García &amp; Asociados.</p></div></div>
         <div class="stats">
           <div class="st"><div class="stic"><i class="ti ti-folders"></i></div><div class="stl">Expedientes activos</div><div class="stv">6</div><div class="stt g">+2 esta semana</div></div>
           <div class="st" style="cursor:pointer;" onclick="V('plazos')"><div class="stic"><i class="ti ti-clock"></i></div><div class="stl">Plazos por vencer</div><div class="stv">2</div><div class="stt w">Vencen en 7 días</div></div>
@@ -627,24 +625,24 @@
             <div class="pill-group" id="tipo-env"><span class="pill sel" onclick="seleccionarPill(this,'tipo-env')">BuroFax</span><span class="pill" onclick="seleccionarPill(this,'tipo-env')">BuroMail</span></div>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">2</div><div class="fnumt">Letrado firmante</div></div>
-            <select class="sel"><option>Julia García Méndez — ICAM Col. 78.214</option><option>Luis Romero Vidal — ICAM Col. 65.901</option><option>Ana Díaz Fuentes — ICAM Col. 82.337</option><option>Pablo Marín Ortega — ICAM Col. 90.118</option></select>
+            <select class="sel" id="f-letrado"><option value="julia">Julia García Méndez — ICAM Col. 78.214</option><option value="luis">Luis Romero Vidal — ICAM Col. 65.901</option><option value="ana">Ana Díaz Fuentes — ICAM Col. 82.337</option><option value="pablo">Pablo Marín Ortega — ICAM Col. 90.118</option></select>
             <div class="colegiado"><i class="ti ti-circle-check"></i>Sus datos se incorporan al bloque "Representante:" del documento</div>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">3</div><div class="fnumt">Solicitante (parte proponente)</div></div>
-            <div class="frow"><div><label class="lbl">Intervención</label><select class="sel" id="intervencion" onchange="toggleRep()"><option value="rep">En representación</option><option value="propio">En nombre propio</option></select></div><div><label class="lbl">Tipo</label><select class="sel"><option>Persona jurídica</option><option>Persona física</option></select></div></div>
-            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" value="Renting Grupo Hermes S.L."></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" value="B-87654321"></div></div>
-            <div class="ffull"><label class="lbl">Dirección</label><input class="inp" value="Av. de la Constitución 22, 41004 Sevilla"></div>
-            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" value="José Failde Sánchez"></div><div><label class="lbl">DNI</label><input class="inp" value="28.456.789-Q"></div></div></div>
+            <div class="frow"><div><label class="lbl">Intervención</label><select class="sel" id="intervencion" onchange="toggleRep()"><option value="rep">En representación</option><option value="propio">En nombre propio</option></select></div><div><label class="lbl">Tipo</label><select class="sel" id="f-sol-tipo"><option>Persona jurídica</option><option>Persona física</option></select></div></div>
+            <div class="frow"><div><label class="lbl">Nombre o razón social</label><input class="inp" id="f-sol-nombre" value="Renting Grupo Hermes S.L."></div><div><label class="lbl">DNI / NIF / CIF</label><input class="inp" id="f-sol-nif" value="B-87654321"></div></div>
+            <div class="ffull"><label class="lbl">Dirección</label><input class="inp" id="f-sol-dir" value="Av. de la Constitución 22, 41004 Sevilla"></div>
+            <div class="repbox" id="repbox"><div class="rlbl">Representante (persona física que actúa)</div><div class="frow"><div><label class="lbl">Nombre y apellidos</label><input class="inp" id="f-rep-nombre" value="José Failde Sánchez"></div><div><label class="lbl">DNI</label><input class="inp" id="f-rep-dni" value="28.456.789-Q"></div></div></div>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">4</div><div class="fnumt">Requerido (parte reclamada)</div></div>
-            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" value="El Bekkali"></div></div>
-            <div class="frow"><div><label class="lbl">DNI / NIE / NIF</label><input class="inp" value="X-1234567-Z"></div><div><label class="lbl">Dirección</label><input class="inp" value="Calle Asencio y Toledo 33, 41006 Sevilla"></div></div>
+            <div class="frow"><div><label class="lbl">Tipo</label><select class="sel" id="f-req-tipo"><option>Persona física</option><option>Persona jurídica</option><option>Abogado / Letrado</option></select></div><div><label class="lbl">Nombre y apellidos / Razón social</label><input class="inp" id="f-req-nombre" value="El Bekkali"></div></div>
+            <div class="frow"><div><label class="lbl">DNI / NIE / NIF</label><input class="inp" id="f-req-nif" value="X-1234567-Z"></div><div><label class="lbl">Dirección</label><input class="inp" id="f-req-dir" value="Calle Asencio y Toledo 33, 41006 Sevilla"></div></div>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">5</div><div class="fnumt">Descripción del conflicto</div></div>
-            <textarea class="ta" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</textarea>
+            <textarea class="ta" id="f-conflicto" style="min-height:60px;">Resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</textarea>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">6</div><div class="fnumt">Antecedentes</div></div>
-            <textarea class="ta" style="min-height:130px;">- 01/10/2016: contrato entre el Sr. El Bekkali y D. José Failde Villaraviz, arrendamiento por 3 años ampliable a una cuarta anualidad, prorrogable por tácita reconducción.
+            <textarea class="ta" id="f-antecedentes" style="min-height:130px;">- 01/10/2016: contrato entre el Sr. El Bekkali y D. José Failde Villaraviz, arrendamiento por 3 años ampliable a una cuarta anualidad, prorrogable por tácita reconducción.
 - 21/04/2023: tras el fallecimiento del arrendador (12/03/2023), se notifica al arrendatario la subrogación, con cuenta bancaria y datos de contacto.
 - Abril 2024: tras la herencia, se aporta el inmueble a la sociedad Renting Grupo Hermes S.L.
 - 27/09/2024: burofax de resolución por expiración del término, con efectos a diciembre 2024.
@@ -652,14 +650,14 @@
 - Antes de nueva demanda, se remite la presente oferta vinculante.</textarea>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">7</div><div class="fnumt">Propuesta de resolución</div></div>
-            <textarea class="ta" style="min-height:90px;">- Desalojo del local sito en C/ Asencio y Toledo 33 con anterioridad al 30/06/2026.
+            <textarea class="ta" id="f-propuesta" style="min-height:90px;">- Desalojo del local sito en C/ Asencio y Toledo 33 con anterioridad al 30/06/2026.
 - Condonación de daños y perjuicios devengados desde el cese del arrendamiento.
 - Declaración de inexistencia de cualquier otra responsabilidad adicional.</textarea>
           </div>
           <div class="fcard"><div class="fnum"><div class="fnumc">8</div><div class="fnumt">Plataforma de pago</div></div>
-            <select class="sel"><option>Stripe (tarjeta)</option><option>Bizum</option><option>Transferencia</option></select>
+            <select class="sel" id="f-pago"><option>Stripe (tarjeta)</option><option>Bizum</option><option>Transferencia</option></select>
           </div>
-          <div class="formfoot"><button class="btno" onclick="V('inicio')">Guardar borrador</button><button class="btn" onclick="V('revisar')">Generar documento<i class="ti ti-arrow-right"></i></button></div>
+          <div class="formfoot"><button class="btno" onclick="V('inicio')">Guardar borrador</button><button class="btn" onclick="generarYMostrarDocumento()">Generar documento<i class="ti ti-arrow-right"></i></button></div>
         </div>
       </div>
     </div>
@@ -678,39 +676,39 @@
           <div class="editbar"><span><i class="ti ti-edit"></i>Modo edición · campos en amarillo editables</span><span class="qtsp"><i class="ti ti-template"></i>Plantilla aplicada</span></div>
           <div class="docpaper">
             <h2>Oferta vinculante confidencial</h2>
-            <p class="ind" style="margin-top:14px;">En <span class="hl" contenteditable="true">Sevilla</span>, a <span class="hl" contenteditable="true">9 de mayo de 2026</span>.</p>
+            <p class="ind" style="margin-top:14px;">En <span class="hl" id="r-ciudad" contenteditable="true">Sevilla</span>, a <span class="hl" id="r-fecha" contenteditable="true">9 de mayo de 2026</span>.</p>
             <p class="ind">Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
-
+ 
             <span class="dsec">Partes involucradas</span>
             <div class="partyhead">Parte reclamada:</div>
-            <div class="pl">Don <span class="hl" contenteditable="true">El Bekkali</span></div>
-            <div class="pl">Dni: <span class="hl" contenteditable="true">X-1234567-Z</span></div>
-            <div class="pl">Dirección: <span class="hl" contenteditable="true">Calle Asencio y Toledo 33, 41006 Sevilla</span></div>
+            <div class="pl"><span id="r-req-trato">Don</span> <span class="hl" id="r-req-nombre" contenteditable="true">El Bekkali</span></div>
+            <div class="pl">Dni: <span class="hl" id="r-req-nif" contenteditable="true">X-1234567-Z</span></div>
+            <div class="pl">Dirección: <span class="hl" id="r-req-dir" contenteditable="true">Calle Asencio y Toledo 33, 41006 Sevilla</span></div>
             <div class="partyhead" style="margin-top:8px;">Parte proponente:</div>
-            <div class="pl">Don <span class="hl" contenteditable="true">Renting Grupo Hermes S.L.</span></div>
-            <div class="pl">Representante: Don <span class="hl" contenteditable="true">José Failde Sánchez</span></div>
-            <div class="pl">Dni: <span class="hl" contenteditable="true">28.456.789-Q</span></div>
-            <div class="pl">Dirección: <span class="hl" contenteditable="true">Av. de la Constitución 22, 41004 Sevilla</span></div>
+            <div class="pl"><span id="r-sol-trato">Don</span> <span class="hl" id="r-sol-nombre" contenteditable="true">Renting Grupo Hermes S.L.</span></div>
+            <div class="pl" id="r-rep-block1">Representante: Don <span class="hl" id="r-rep-nombre" contenteditable="true">José Failde Sánchez</span></div>
+            <div class="pl" id="r-rep-block2">Dni: <span class="hl" id="r-rep-dni" contenteditable="true">28.456.789-Q</span></div>
+            <div class="pl">Dirección: <span class="hl" id="r-sol-dir" contenteditable="true">Av. de la Constitución 22, 41004 Sevilla</span></div>
             <div class="partyhead" style="margin-top:8px;">Representante:</div>
-            <div class="pl">Don <span class="hl">Julia García Méndez</span></div>
-            <div class="pl">Cdo <span class="hl">78.214</span> del Ilustre Colegio de Abogados de Sevilla</div>
-            <div class="pl">Dirección: <span class="hl">Calle Sierpes 65, 1º A, 41004 Sevilla</span></div>
-            <div class="pl">Email: <span class="hl">julia.garcia@garcia-asociados.es</span></div>
-            <div class="pl">Teléfono: <span class="hl">954 22 13 45</span></div>
-
+            <div class="pl">Don/Dña. <span class="hl" id="r-let-nombre">Julia García Méndez</span></div>
+            <div class="pl">Cdo <span class="hl" id="r-let-col">78.214</span> del Ilustre Colegio de Abogados de Sevilla</div>
+            <div class="pl">Dirección: <span class="hl" id="r-let-dir">Calle Sierpes 65, 1º A, 41004 Sevilla</span></div>
+            <div class="pl">Email: <span class="hl" id="r-let-email">julia.garcia@garcia-asociados.es</span></div>
+            <div class="pl">Teléfono: <span class="hl" id="r-let-tel">954 22 13 45</span></div>
+ 
             <span class="dsec">Descripción del conflicto</span>
-            <p class="ind" contenteditable="true">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
-
+            <p class="ind" id="r-conflicto" contenteditable="true">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
+ 
             <span class="dsec">Antecedentes y situación arrendaticia actual</span>
-            <p contenteditable="true" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
-
+            <p contenteditable="true" id="r-antecedentes" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Texto narrativo de los 6 antecedentes, inyectado desde el formulario. Editable aquí antes de enviar.</p>
+ 
             <span class="dsec">Propuesta de resolución</span>
-            <p contenteditable="true" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
-
+            <p contenteditable="true" id="r-propuesta" style="white-space:pre-wrap;background:#fffbeb;padding:8px 12px;border-radius:4px;border-left:2px solid #f59e0b;font-size:10.5px;text-indent:0;">Los tres compromisos inyectados desde el formulario. Editable aquí.</p>
+ 
             <span class="dsec" style="color:#94a3b8;">Plazo · Confidencialidad · Consecuencias del rechazo · Medios de comunicación · Conclusión</span>
             <p style="color:#64748b;font-size:10.5px;background:#f8fafc;padding:8px 12px;border-radius:4px;text-indent:0;">[No editables] Texto legal fijo de la plantilla (arts. 17, 17.3, 5 LO 1/2025, art. 199 CP, art. 394.2 LEC).</p>
-
-            <div class="firma"><div class="fname">Firma Letrado Dña. Julia García Méndez</div></div>
+ 
+            <div class="firma"><div class="fname" id="r-firma">Firma Letrado Dña. Julia García Méndez</div></div>
           </div>
         </div>
         <div class="formfoot" style="margin-top:14px;"><button class="btno" onclick="V('nuevo')"><i class="ti ti-arrow-left"></i>Editar datos</button><button class="btn" onclick="V('vista')">Vista previa<i class="ti ti-arrow-right"></i></button></div>
@@ -731,37 +729,37 @@
         <div class="pdfwrap">
           <div class="pdfsheet">
             <h2>Oferta vinculante confidencial</h2>
-            <p class="noindent" style="margin-top:18px;text-indent:28px;">En Sevilla, a 9 de mayo de 2026.</p>
+            <p class="noindent" style="margin-top:18px;text-indent:28px;">En <span id="p-ciudad">Sevilla</span>, a <span id="p-fecha">9 de mayo de 2026</span>.</p>
             <p>Que de conformidad con lo dispuesto en el artículo 17 de la Ley Orgánica 1/2025, de 3 de enero, se formula la presente <strong>OFERTA VINCULANTE CONFIDENCIAL</strong>, en el marco de los Medios Alternativos de Resolución de Conflictos (MASC), garantizando la buena fe, la confidencialidad y el principio de subsidiariedad procesal.</p>
 
             <span class="dsec">Partes involucradas</span>
             <div class="partyblock">
               <span class="line"><strong>Parte reclamada:</strong></span>
-              <span class="line">Don El Bekkali</span>
-              <span class="line">Dni: X-1234567-Z</span>
-              <span class="line">Dirección: Calle Asencio y Toledo 33, 41006 Sevilla</span>
+              <span class="line"><span id="p-req-trato">Don</span> <span id="p-req-nombre">El Bekkali</span></span>
+              <span class="line">Dni: <span id="p-req-nif">X-1234567-Z</span></span>
+              <span class="line">Dirección: <span id="p-req-dir">Calle Asencio y Toledo 33, 41006 Sevilla</span></span>
             </div>
             <div class="partyblock">
               <span class="line"><strong>Parte proponente:</strong></span>
-              <span class="line">Don Renting Grupo Hermes S.L.</span>
-              <span class="line">Representante: Don José Failde Sánchez</span>
-              <span class="line">Dni: 28.456.789-Q</span>
-              <span class="line">Dirección: Av. de la Constitución 22, 41004 Sevilla</span>
+              <span class="line"><span id="p-sol-trato">Don</span> <span id="p-sol-nombre">Renting Grupo Hermes S.L.</span></span>
+              <span class="line" id="p-rep-line1">Representante: Don <span id="p-rep-nombre">José Failde Sánchez</span></span>
+              <span class="line" id="p-rep-line2">Dni: <span id="p-rep-dni">28.456.789-Q</span></span>
+              <span class="line">Dirección: <span id="p-sol-dir">Av. de la Constitución 22, 41004 Sevilla</span></span>
             </div>
             <div class="partyblock">
               <span class="line"><strong>Representante:</strong></span>
-              <span class="line">Doña Julia García Méndez</span>
-              <span class="line">Cdo 78.214 del Ilustre Colegio de Abogados de Sevilla</span>
-              <span class="line">Dirección: Calle Sierpes 65, 1º A, 41004 Sevilla</span>
-              <span class="line">Email: julia.garcia@garcia-asociados.es</span>
-              <span class="line">Teléfono: 954 22 13 45</span>
+              <span class="line"><span id="p-let-trato">Doña</span> <span id="p-let-nombre">Julia García Méndez</span></span>
+              <span class="line">Cdo <span id="p-let-col">78.214</span> del Ilustre Colegio de Abogados de Sevilla</span>
+              <span class="line">Dirección: <span id="p-let-dir">Calle Sierpes 65, 1º A, 41004 Sevilla</span></span>
+              <span class="line">Email: <span id="p-let-email">julia.garcia@garcia-asociados.es</span></span>
+              <span class="line">Teléfono: <span id="p-let-tel">954 22 13 45</span></span>
             </div>
 
             <span class="dsec">Descripción del conflicto</span>
-            <p>La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
+            <p id="p-conflicto">La presente oferta vinculante tiene por finalidad promover la resolución extrajudicial del contrato de arrendamiento de local de negocio, como consecuencia de la expiración del plazo contractual, relativo al inmueble sito en la Calle Asencio y Toledo nº 33.</p>
 
             <span class="dsec">Antecedentes y situación arrendaticia actual</span>
-            <ol>
+            <ol id="p-antecedentes-ol1">
               <li>En fecha 1 de octubre de 2016, se rubricó contrato entre el Sr. El Bekkali y Don José Failde Villaraviz, progenitor de mi representado Don José Failde Sánchez, socio y administrador único de la mercantil Renting Grupo Hermes, S.L. Se acordaba el arrendamiento del local sito en Calle Asencio y Toledo 33, por un plazo de tres años, ampliable a una cuarta anualidad, prorrogable por tácita reconducción.</li>
               <li>En fecha 21 de abril de 2023, tras el fallecimiento de Don José Failde Villaraviz el 12 de marzo de 2023, se notificó al arrendatario la subrogación del arrendador, exponiendo el número de cuenta bancaria para las rentas, la persona de contacto y los datos del nuevo arrendador.</li>
               <li>Tras la finalización del procedimiento de herencia, el representado aportó el inmueble a su sociedad limitada en abril de 2024, siendo conocedor el arrendatario de dicha titularidad en todo momento, según constaba en la notificación de subrogación y en las transferencias bancarias del periodo.</li>
@@ -770,14 +768,14 @@
           </div>
 
           <div class="pdfsheet">
-            <ol start="4">
+            <ol start="4" id="p-antecedentes-ol2">
               <li>Con fecha 27 de septiembre de 2024, se notificó al arrendatario, mediante burofax, la resolución del contrato por expiración del término pactado, con efectos a diciembre de la misma anualidad. La comunicación fue remitida por el letrado que suscribe, en nombre y representación del administrador único de la propietaria, para que no existiera duda sobre la legitimación y capacidad representativa.</li>
               <li>Debido a que el arrendatario no desalojó el local de forma voluntaria, hubo que acudir a la tutela judicial, dictándose sentencia en fecha 30 de noviembre de 2025, que desestima la demanda interpuesta por defecto de forma y sin entrar en el fondo del asunto.</li>
               <li>Que antes de interponer una nueva demanda, subsanando los defectos de forma, se le envía la presente oferta vinculante confidencial, con la correspondiente propuesta de acuerdo.</li>
             </ol>
 
             <span class="dsec">Propuesta de resolución</span>
-            <ul>
+            <ul id="p-propuesta-ul">
               <li>El Sr. El Bekkali deberá desalojar el local comercial sito en Sevilla, Calle Asencio y Toledo núm. 33, con anterioridad al día 30 de junio de 2026.</li>
               <li>El proponente condonará los daños y perjuicios económicos devengados desde la fecha en que el arrendatario debió desalojar el local, sin que haya abonado suma alguna en concepto de la ocupación precaria del inmueble.</li>
               <li>Finalmente, se contrae el compromiso de cumplimiento y ambas partes declaran la inexistencia de cualquier otra responsabilidad adicional una vez aceptada la propuesta y formalizado el acuerdo.</li>
@@ -800,7 +798,7 @@
             <p>Se insta a la parte reclamada a valorar esta propuesta en aras de una solución rápida, eficiente y extrajudicial del conflicto, evitando costes adicionales derivados del procedimiento judicial.</p>
             <p>Sin otro particular, en espera de su respuesta, reciba un cordial saludo.</p>
 
-            <div class="firma"><div class="fname">Firma Letrado Dña. Julia María García Méndez</div></div>
+            <div class="firma"><div class="fname" id="p-firma">Firma Letrado Dña. Julia María García Méndez</div></div>
             <span class="pagenum">Página 2 de 2</span>
           </div>
         </div>
@@ -1008,6 +1006,284 @@ function toggleOne(el){ el.classList.toggle('on'); updateSelCount(); }
 function toggleAll(head){ head.classList.toggle('on'); var on=head.classList.contains('on'); document.querySelectorAll('#v-expedientes tbody .checkbox').forEach(function(c){ if(on) c.classList.add('on'); else c.classList.remove('on'); }); updateSelCount(); }
 function updateSelCount(){ var n=document.querySelectorAll('#v-expedientes tbody .checkbox.on').length; document.getElementById('selcount').textContent=n+' seleccionados'; document.getElementById('bulkcount').textContent=n; document.getElementById('bulkbar').classList.toggle('on', n>0); }
 
+// Datos profesionales de letrados
+var letrados = {
+  julia: {
+    nombre: "Julia García Méndez",
+    trato: "Doña",
+    colegio: "ICAM Col. 78.214",
+    dir: "Calle Sierpes 65, 1º A, 41004 Sevilla",
+    email: "julia.garcia@garcia-asociados.es",
+    tel: "954 22 13 45",
+    firma: "Firma Letrado Dña. Julia García Méndez"
+  },
+  luis: {
+    nombre: "Luis Romero Vidal",
+    trato: "Don",
+    colegio: "ICAM Col. 65.901",
+    dir: "Calle Sierpes 65, 1º A, 41004 Sevilla",
+    email: "luis.romero@garcia-asociados.es",
+    tel: "954 22 13 46",
+    firma: "Firma Letrado D. Luis Romero Vidal"
+  },
+  ana: {
+    nombre: "Ana Díaz Fuentes",
+    trato: "Doña",
+    colegio: "ICAM Col. 82.337",
+    dir: "Calle Sierpes 65, 1º A, 41004 Sevilla",
+    email: "ana.diaz@garcia-asociados.es",
+    tel: "954 22 13 47",
+    firma: "Firma Letrado Dña. Ana Díaz Fuentes"
+  },
+  pablo: {
+    nombre: "Pablo Marín Ortega",
+    trato: "Don",
+    colegio: "ICAM Col. 90.118",
+    dir: "Calle Sierpes 65, 1º A, 41004 Sevilla",
+    email: "pablo.marin@garcia-asociados.es",
+    tel: "954 22 13 48",
+    firma: "Firma Letrado D. Pablo Marín Ortega"
+  }
+};
+
+function getFormattedDate() {
+  var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  var d = new Date();
+  var dia = d.getDate();
+  var mes = meses[d.getMonth()];
+  var anio = d.getFullYear();
+  return dia + " de " + mes + " de " + anio;
+}
+
+function getTrato(tipo, nombre) {
+  if (tipo === "Persona jurídica") {
+    return "la mercantil";
+  } else if (tipo === "Abogado / Letrado") {
+    return "el Letrado D.";
+  } else {
+    return "Don/Dña";
+  }
+}
+
+// Generación dinámica del documento a partir del formulario
+function generarYMostrarDocumento() {
+  var letradoKey = document.getElementById('f-letrado').value;
+  var letradoInfo = letrados[letradoKey];
+  
+  var intervencion = document.getElementById('intervencion').value;
+  var solTipo = document.getElementById('f-sol-tipo').value;
+  var solNombre = document.getElementById('f-sol-nombre').value;
+  var solNif = document.getElementById('f-sol-nif').value;
+  var solDir = document.getElementById('f-sol-dir').value;
+  
+  var repNombre = document.getElementById('f-rep-nombre').value;
+  var repDni = document.getElementById('f-rep-dni').value;
+  
+  var reqTipo = document.getElementById('f-req-tipo').value;
+  var reqNombre = document.getElementById('f-req-nombre').value;
+  var reqNif = document.getElementById('f-req-nif').value;
+  var reqDir = document.getElementById('f-req-dir').value;
+  
+  var conflicto = document.getElementById('f-conflicto').value;
+  var antecedentes = document.getElementById('f-antecedentes').value;
+  var propuesta = document.getElementById('f-propuesta').value;
+  
+  var fechaText = getFormattedDate();
+  var ciudadText = "Sevilla";
+  
+  // Paso 2 (Editable)
+  document.getElementById('r-ciudad').textContent = ciudadText;
+  document.getElementById('r-fecha').textContent = fechaText;
+  
+  var solTrato = getTrato(solTipo, solNombre);
+  var solTratoEl = document.getElementById('r-sol-trato');
+  if (solTratoEl) solTratoEl.textContent = solTrato;
+  document.getElementById('r-sol-nombre').textContent = solNombre;
+  document.getElementById('r-sol-dir').textContent = solDir;
+  
+  var reqTrato = getTrato(reqTipo, reqNombre);
+  var reqTratoEl = document.getElementById('r-req-trato');
+  if (reqTratoEl) reqTratoEl.textContent = reqTrato;
+  document.getElementById('r-req-nombre').textContent = reqNombre;
+  document.getElementById('r-req-nif').textContent = reqNif;
+  document.getElementById('r-req-dir').textContent = reqDir;
+  
+  var repBlock1 = document.getElementById('r-rep-block1');
+  var repBlock2 = document.getElementById('r-rep-block2');
+  if (intervencion === 'propio') {
+    if (repBlock1) repBlock1.style.display = 'none';
+    if (repBlock2) repBlock2.style.display = 'none';
+  } else {
+    if (repBlock1) repBlock1.style.display = 'block';
+    if (repBlock2) repBlock2.style.display = 'block';
+    document.getElementById('r-rep-nombre').textContent = repNombre;
+    document.getElementById('r-rep-dni').textContent = repDni;
+  }
+  
+  document.getElementById('r-let-nombre').textContent = letradoInfo.nombre;
+  document.getElementById('r-let-col').textContent = letradoInfo.colegio.replace('ICAM Col. ', '');
+  document.getElementById('r-let-dir').textContent = letradoInfo.dir;
+  document.getElementById('r-let-email').textContent = letradoInfo.email;
+  document.getElementById('r-let-tel').textContent = letradoInfo.tel;
+  
+  document.getElementById('r-conflicto').textContent = conflicto;
+  document.getElementById('r-antecedentes').textContent = antecedentes;
+  document.getElementById('r-propuesta').textContent = propuesta;
+  document.getElementById('r-firma').textContent = letradoInfo.firma;
+  
+  // Paso 3 (Preview)
+  document.getElementById('p-ciudad').textContent = ciudadText;
+  document.getElementById('p-fecha').textContent = fechaText;
+  
+  var pSolTratoEl = document.getElementById('p-sol-trato');
+  if (pSolTratoEl) pSolTratoEl.textContent = solTrato;
+  document.getElementById('p-sol-nombre').textContent = solNombre;
+  document.getElementById('p-sol-dir').textContent = solDir;
+  
+  var pReqTratoEl = document.getElementById('p-req-trato');
+  if (pReqTratoEl) pReqTratoEl.textContent = reqTrato;
+  document.getElementById('p-req-nombre').textContent = reqNombre;
+  document.getElementById('p-req-nif').textContent = reqNif;
+  document.getElementById('p-req-dir').textContent = reqDir;
+  
+  var pRepLine1 = document.getElementById('p-rep-line1');
+  var pRepLine2 = document.getElementById('p-rep-line2');
+  if (intervencion === 'propio') {
+    if (pRepLine1) pRepLine1.style.display = 'none';
+    if (pRepLine2) pRepLine2.style.display = 'none';
+  } else {
+    if (pRepLine1) pRepLine1.style.display = 'block';
+    if (pRepLine2) pRepLine2.style.display = 'block';
+    document.getElementById('p-rep-nombre').textContent = repNombre;
+    document.getElementById('p-rep-dni').textContent = repDni;
+  }
+  
+  document.getElementById('p-let-trato').textContent = letradoInfo.trato;
+  document.getElementById('p-let-nombre').textContent = letradoInfo.nombre;
+  document.getElementById('p-let-col').textContent = letradoInfo.colegio.replace('ICAM Col. ', '');
+  document.getElementById('p-let-dir').textContent = letradoInfo.dir;
+  document.getElementById('p-let-email').textContent = letradoInfo.email;
+  document.getElementById('p-let-tel').textContent = letradoInfo.tel;
+  
+  document.getElementById('p-conflicto').textContent = conflicto;
+  
+  // Antecedentes list parsing
+  var antLines = antecedentes.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+                             .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
+                             .filter(function(l){return l.length > 0;});
+  
+  var antP1Html = '';
+  for (var i = 0; i < Math.min(3, antLines.length); i++) {
+    antP1Html += '<li>' + antLines[i] + '</li>';
+  }
+  document.getElementById('p-antecedentes-ol1').innerHTML = antP1Html;
+  
+  var antP2Html = '';
+  for (var i = 3; i < antLines.length; i++) {
+    antP2Html += '<li>' + antLines[i] + '</li>';
+  }
+  var pOl2 = document.getElementById('p-antecedentes-ol2');
+  if (pOl2) {
+    if (antP2Html) {
+      pOl2.innerHTML = antP2Html;
+      pOl2.style.display = 'block';
+    } else {
+      pOl2.innerHTML = '';
+      pOl2.style.display = 'none';
+    }
+  }
+  
+  // Propuesta list parsing
+  var propLines = propuesta.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+                           .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
+                           .filter(function(l){return l.length > 0;});
+  
+  var propHtml = '';
+  propLines.forEach(function(cl) {
+    propHtml += '<li>' + cl + '</li>';
+  });
+  document.getElementById('p-propuesta-ul').innerHTML = propHtml;
+  
+  document.getElementById('p-firma').textContent = letradoInfo.firma;
+  
+  V('revisar');
+}
+
+// Sincronización en tiempo real desde el editor editable (Paso 2) hacia la vista previa (Paso 3)
+function initSync() {
+  var mappings = [
+    { from: 'r-ciudad', to: 'p-ciudad' },
+    { from: 'r-fecha', to: 'p-fecha' },
+    { from: 'r-req-nombre', to: 'p-req-nombre' },
+    { from: 'r-req-nif', to: 'p-req-nif' },
+    { from: 'r-req-dir', to: 'p-req-dir' },
+    { from: 'r-sol-nombre', to: 'p-sol-nombre' },
+    { from: 'r-rep-nombre', to: 'p-rep-nombre' },
+    { from: 'r-rep-dni', to: 'p-rep-dni' },
+    { from: 'r-sol-dir', to: 'p-sol-dir' },
+    { from: 'r-conflicto', to: 'p-conflicto' }
+  ];
+  
+  mappings.forEach(function(m) {
+    var fromEl = document.getElementById(m.from);
+    if (fromEl) {
+      fromEl.addEventListener('input', function() {
+        var toEl = document.getElementById(m.to);
+        if (toEl) {
+          toEl.textContent = fromEl.textContent;
+        }
+      });
+    }
+  });
+  
+  var antEl = document.getElementById('r-antecedentes');
+  if (antEl) {
+    antEl.addEventListener('input', function() {
+      var text = antEl.innerText;
+      var cleanLines = text.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+                            .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
+                            .filter(function(l){return l.length > 0;});
+      
+      var p1Html = '';
+      for (var i = 0; i < Math.min(3, cleanLines.length); i++) {
+        p1Html += '<li>' + cleanLines[i] + '</li>';
+      }
+      document.getElementById('p-antecedentes-ol1').innerHTML = p1Html;
+      
+      var p2Html = '';
+      for (var i = 3; i < cleanLines.length; i++) {
+        p2Html += '<li>' + cleanLines[i] + '</li>';
+      }
+      var ol2 = document.getElementById('p-antecedentes-ol2');
+      if (ol2) {
+        if (p2Html) {
+          ol2.innerHTML = p2Html;
+          ol2.style.display = 'block';
+        } else {
+          ol2.innerHTML = '';
+          ol2.style.display = 'none';
+        }
+      }
+    });
+  }
+  
+  var propEl = document.getElementById('r-propuesta');
+  if (propEl) {
+    propEl.addEventListener('input', function() {
+      var text = propEl.innerText;
+      var cleanLines = text.split('\n').map(function(l){return l.trim();}).filter(function(l){return l.length > 0;})
+                            .map(function(l){return l.replace(/^[-*•\d\.\s]+/g, '').trim();})
+                            .filter(function(l){return l.length > 0;});
+      var html = '';
+      cleanLines.forEach(function(cl) {
+        html += '<li>' + cl + '</li>';
+      });
+      var ul = document.getElementById('p-propuesta-ul');
+      if (ul) ul.innerHTML = html;
+    });
+  }
+}
+
 // Funciones para el menú lateral responsive
 function toggleSidebar(open){
   document.querySelectorAll('.sb').forEach(function(el){
@@ -1021,7 +1297,7 @@ function toggleSidebar(open){
   }
 }
 
-// Inicialización de elementos responsivos
+// Inicialización de elementos responsivos y sincronización
 var app = document.querySelector('.app');
 if(app){
   var overlay = document.createElement('div');
@@ -1048,4 +1324,5 @@ document.addEventListener('click', function(e){
 });
 
 for(var i=1;i<=12;i++){var el=document.getElementById('sb'+i); if(el) el.innerHTML=sidebar('inicio');}
+initSync();
 </script>
