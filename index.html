@@ -1316,8 +1316,6 @@ async function enviarDocumentoPorEmail() {
     
     try {
       var url = 'https://api.resend.com/emails';
-      var proxyUrl = 'https://corsproxy.io/?url=' + encodeURIComponent(url);
-      
       var sendPayload = {
         from: fromEmail,
         to: [rec.email],
@@ -1325,22 +1323,44 @@ async function enviarDocumentoPorEmail() {
         html: emailBody
       };
       
-      // Resend does not support browser CORS requests, so we must use a POST-supporting CORS proxy.
-      var response = await fetch(proxyUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey
-        },
-        body: JSON.stringify(sendPayload)
-      });
+      var proxies = [
+        'https://api.cors.lol/?url=' + encodeURIComponent(url),
+        'https://corsproxy.io/?url=' + encodeURIComponent(url),
+        'https://thingproxy.freeboard.io/fetch/' + url
+      ];
       
-      if (response.ok) {
+      var response = null;
+      var lastError = "";
+      
+      for (var p = 0; p < proxies.length; p++) {
+        try {
+          var proxyUrl = proxies[p];
+          response = await fetch(proxyUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + apiKey
+            },
+            body: JSON.stringify(sendPayload)
+          });
+          
+          if (response.ok) {
+            lastError = ""; // Clear errors on success
+            break;
+          } else {
+            var errText = "";
+            try { errText = await response.text(); } catch(e){}
+            lastError = "Proxy " + (p + 1) + " respondió " + response.status + ": " + errText;
+          }
+        } catch (fetchErr) {
+          lastError = "Proxy " + (p + 1) + " error de red: " + fetchErr.message;
+        }
+      }
+      
+      if (response && response.ok) {
         successCount++;
       } else {
-        var errData = "";
-        try { errData = await response.text(); } catch(e){}
-        failDetails.push(rec.role + " (" + rec.email + "): " + response.status + " " + errData);
+        failDetails.push(rec.role + " (" + rec.email + "): " + (lastError || "Fallo de conexión en todos los servidores proxy"));
       }
     } catch (err) {
       failDetails.push(rec.role + " (" + rec.email + "): " + err.message);
