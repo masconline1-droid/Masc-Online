@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MASC Digital - Mediación y Ofertas Vinculantes</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -552,6 +553,201 @@
     .formfoot { flex-direction: column; gap: 10px; align-items: stretch; }
     .formfoot button { width: 100%; justify-content: center; }
   }
+
+  /* Login styling */
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .login-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: floatIn 0.5s ease-out;
+    box-sizing: border-box;
+  }
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .login-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+  }
+  .login-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .login-subtitle {
+    font-size: 13.5px;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .google-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+    box-sizing: border-box;
+  }
+  .google-btn:hover {
+    background: var(--color-bg-main);
+    border-color: var(--color-text-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .google-btn:active {
+    transform: translateY(0);
+  }
+  .login-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--color-text-light);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .login-divider::before, .login-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--color-border-primary);
+  }
+  .login-divider:not(:empty)::before {
+    margin-right: 12px;
+  }
+  .login-divider:not(:empty)::after {
+    margin-left: 12px;
+  }
+  .login-link {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .login-link:hover {
+    text-decoration: underline;
+    color: var(--color-accent-hover);
+  }
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .password-wrapper .inp {
+    padding-right: 40px;
+  }
+  .btn-toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .btn-toggle-password:hover {
+    color: var(--color-text-muted);
+  }
+  .login-submit-btn {
+    transition: all var(--transition-fast);
+  }
+  .login-alert {
+    padding: 10px 14px;
+    border-radius: var(--border-radius-md);
+    font-size: 12.5px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+    animation: fadeIn var(--transition-fast);
+    box-sizing: border-box;
+  }
+  .login-alert.error {
+    background: var(--color-error-light);
+    color: var(--color-error);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+  }
+  .login-alert.success {
+    background: var(--color-success-light);
+    color: var(--color-success);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+  }
+  .login-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+  .login-footer a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
+  .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .sbfoot button:hover {
+    color: var(--color-error) !important;
+  }
 </style>
 </head>
 <body>
@@ -559,12 +755,110 @@
 
 <div class="app">
 
-<div class="view on" id="v-inicio">
+<!-- Login View -->
+<div class="view on" id="v-login">
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-logo-icon">
+          <i class="ti ti-scale"></i>
+        </div>
+        MASC Digital
+      </div>
+      <h2>Bienvenido de nuevo</h2>
+      <p class="login-subtitle">Accede a la plataforma de mediación digital</p>
+      
+      <!-- Google Auth Button -->
+      <button class="google-btn" onclick="loginWithGoogle()">
+        <svg width="18" height="18" viewBox="0 0 18 18" style="display: block;">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+          <path d="M3.964 10.707a5.416 5.416 0 0 1 0-3.414V4.961H.957a8.997 8.997 0 0 0 0 8.078l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.807 11.427 0 9 0A8.997 8.997 0 0 0 .957 4.961l3.007 2.332C4.672 5.164 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        Continuar con Google
+      </button>
+      
+      <div class="login-divider">
+        <span>o accede con tu correo</span>
+      </div>
+      
+      <div id="login-error-msg" class="login-alert error" style="display:none;"></div>
+      <div id="login-success-msg" class="login-alert success" style="display:none;"></div>
+      
+      <!-- Normal Login Form -->
+      <form id="login-form" onsubmit="handleEmailLogin(event)">
+        <div class="form-group">
+          <label class="lbl" for="login-email">Correo electrónico</label>
+          <input type="email" id="login-email" class="inp" placeholder="nombre@correo.com" required autocomplete="email">
+        </div>
+        
+        <div class="form-group" style="margin-top: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="lbl" for="login-password" style="margin-bottom:0;">Contraseña</label>
+            <a href="#" onclick="showForgotPasswordForm()" class="login-link">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="password-wrapper">
+            <input type="password" id="login-password" class="inp" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-password" onclick="togglePasswordVisibility('login-password')">
+              <i class="ti ti-eye"></i>
+            </button>
+          </div>
+        </div>
+        
+        <button type="submit" class="btnacc login-submit-btn" style="margin-top: 20px; width: 100%; justify-content: center; height: 42px;">
+          <span>Iniciar sesión</span>
+        </button>
+      </form>
+      
+      <!-- Sign Up Form (hidden by default) -->
+      <form id="signup-form" onsubmit="handleEmailSignUp(event)" style="display:none;">
+        <div class="form-group">
+          <label class="lbl" for="signup-name">Nombre completo</label>
+          <input type="text" id="signup-name" class="inp" placeholder="Julia García" required autocomplete="name">
+        </div>
+        <div class="form-group" style="margin-top: 14px;">
+          <label class="lbl" for="signup-email">Correo electrónico</label>
+          <input type="email" id="signup-email" class="inp" placeholder="nombre@correo.com" required autocomplete="email">
+        </div>
+        <div class="form-group" style="margin-top: 14px;">
+          <label class="lbl" for="signup-password">Contraseña</label>
+          <div class="password-wrapper">
+            <input type="password" id="signup-password" class="inp" placeholder="Mínimo 6 caracteres" required minlength="6" autocomplete="new-password">
+            <button type="button" class="btn-toggle-password" onclick="togglePasswordVisibility('signup-password')">
+              <i class="ti ti-eye"></i>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btnacc login-submit-btn" style="margin-top: 20px; width: 100%; justify-content: center; height: 42px;">
+          <span>Registrarse</span>
+        </button>
+      </form>
+
+      <!-- Forgot Password Form (hidden by default) -->
+      <form id="forgot-password-form" onsubmit="handleForgotPassword(event)" style="display:none;">
+        <div class="form-group">
+          <label class="lbl" for="forgot-email">Correo electrónico</label>
+          <input type="email" id="forgot-email" class="inp" placeholder="nombre@correo.com" required autocomplete="email">
+        </div>
+        <button type="submit" class="btnacc login-submit-btn" style="margin-top: 20px; width: 100%; justify-content: center; height: 42px;">
+          <span>Enviar enlace de recuperación</span>
+        </button>
+      </form>
+      
+      <div class="login-footer">
+        <span id="login-footer-text">¿No tienes cuenta? <a href="#" onclick="toggleAuthMode('signup')">Regístrate</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="view" id="v-inicio">
   <div class="layout"><div class="sb" id="sb1"></div>
     <div class="main">
       <div class="top"><div class="toptitle"><i class="ti ti-home"></i>Inicio</div><div class="topr"><i class="ti ti-bell bell"></i></div></div>
       <div class="body">
-        <div class="ph"><div><h1>Hola, Julia</h1><p>Despacho García &amp; Asociados.</p></div></div>
+        <div class="ph"><div><h1 id="greeting-title">Hola, Julia</h1><p id="greeting-subtitle">Despacho García &amp; Asociados.</p></div></div>
         <div class="stats">
           <div class="st"><div class="stic"><i class="ti ti-folders"></i></div><div class="stl">Expedientes activos</div><div class="stv">6</div><div class="stt g">+2 esta semana</div></div>
           <div class="st" style="cursor:pointer;" onclick="V('plazos')"><div class="stic"><i class="ti ti-clock"></i></div><div class="stl">Plazos por vencer</div><div class="stv">2</div><div class="stt w">Vencen en 7 días</div></div>
@@ -1169,6 +1463,29 @@
 
 <script>
 function sidebar(active){
+  var user = currentUser || { email: '', user_metadata: {} };
+  var userName = user.user_metadata?.full_name || user.email || 'Julia García';
+  var userEmail = user.email || 'García & Asociados';
+  
+  var initials = 'JG';
+  if (user.user_metadata?.full_name) {
+    var parts = user.user_metadata.full_name.split(' ');
+    if (parts.length >= 2) {
+      initials = (parts[0][0] + parts[1][0]).toUpperCase();
+    } else if (parts.length >= 1) {
+      initials = parts[0].substring(0, 2).toUpperCase();
+    }
+  } else if (user.email) {
+    initials = user.email.substring(0, 2).toUpperCase();
+  }
+  
+  var avatarHtml = '';
+  if (user.user_metadata?.avatar_url) {
+    avatarHtml = '<img src="' + user.user_metadata.avatar_url + '" referrerpolicy="no-referrer" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">';
+  } else {
+    avatarHtml = initials;
+  }
+
   function it(key,view,icon,label){return '<div class="sbi '+(active==key?'on':'')+'" onclick="V(\''+view+'\')"><i class="ti '+icon+'"></i>'+label+'</div>';}
   return '<div class="sblogo" onclick="V(\'inicio\')"><div class="sblogoic"><i class="ti ti-scale"></i></div>MASC Digital</div>'
   + '<button class="sbnew" onclick="V(\'nuevo\')"><i class="ti ti-plus"></i>Nuevo expediente</button>'
@@ -1181,7 +1498,16 @@ function sidebar(active){
   + it('plazos','plazos','ti-calendar','Plazos')
   + it('facturacion','facturacion','ti-credit-card','Facturación')
   + it('ajustes','ajustes','ti-settings','Ajustes')
-  + '<div class="sbfoot"><div class="av">JG</div><div><div class="nm">Julia García</div><div class="rl">García &amp; Asociados</div></div></div>';
+  + '<div class="sbfoot">'
+  + '  <div class="av" style="overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">' + avatarHtml + '</div>'
+  + '  <div style="flex-grow: 1; min-width: 0; margin-right: 4px; text-align: left;">'
+  + '    <div class="nm" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 12px; font-weight: 600; line-height: 1.3;" title="' + userName + '">' + userName + '</div>'
+  + '    <div class="rl" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 10px; color: var(--color-text-light);" title="' + userEmail + '">' + userEmail + '</div>'
+  + '  </div>'
+  + '  <button onclick="handleLogout(event)" title="Cerrar sesión" style="background: none; border: none; color: var(--color-text-light); cursor: pointer; padding: 4px; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: color var(--transition-fast); flex-shrink: 0;">'
+  + '    <i class="ti ti-logout" style="font-size: 18px;"></i>'
+  + '  </button>'
+  + '</div>';
 }
 
 function cargarAjustesResend() {
@@ -1481,9 +1807,18 @@ function cargarEjemploAleatorio() {
 }
 
 function V(id){
+  // Enforce session security
+  if (!currentUser && id !== 'login') {
+    id = 'login';
+  }
+  
   document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on');});
-  document.getElementById('v-'+id).classList.add('on');
-  var map={inicio:'inicio',expedientes:'exp',nuevo:'exp',revisar:'exp',vista:'exp',detalle:'exp',letrados:'letrados',plantillas:'plantillas','plantilla-detalle':'plantillas',plazos:'plazos',facturacion:'facturacion',ajustes:'ajustes'};
+  var targetView = document.getElementById('v-'+id);
+  if (targetView) {
+    targetView.classList.add('on');
+  }
+  
+  var map={login:'login',inicio:'inicio',expedientes:'exp',nuevo:'exp',revisar:'exp',vista:'exp',detalle:'exp',letrados:'letrados',plantillas:'plantillas','plantilla-detalle':'plantillas',plazos:'plazos',facturacion:'facturacion',ajustes:'ajustes'};
   for(var i=1;i<=12;i++){var el=document.getElementById('sb'+i); if(el) el.innerHTML=sidebar(map[id]);}
   
   if (id === 'nuevo') {
@@ -1504,7 +1839,7 @@ function V(id){
     if (letEl) letEl.value = randomLetrado;
     
     var despEmailEl = document.getElementById('f-despacho-email');
-    if (despEmailEl) despEmailEl.value = "masconline1@gmail.com";
+    if (despEmailEl) despEmailEl.value = currentUser?.email || "masconline1@gmail.com";
     
     var estEl = document.getElementById('f-exp-estado');
     if (estEl) estEl.value = "resultado";
@@ -2211,7 +2546,282 @@ document.addEventListener('click', function(e){
   }
 });
 
-for(var i=1;i<=12;i++){var el=document.getElementById('sb'+i); if(el) el.innerHTML=sidebar('inicio');}
+// --- CONFIGURACIÓN E INICIALIZACIÓN DE SUPABASE ---
+var currentUser = null;
+const supabaseUrl = 'https://ktysptwemewbyanagdwu.supabase.co';
+const supabaseKey = 'sb_publishable_OnMCs7UahBVGhl8ey4RjsQ_eu0CU2Nq';
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// --- CONTROLADORES DE AUTENTICACIÓN ---
+
+function togglePasswordVisibility(inputId) {
+  var input = document.getElementById(inputId);
+  if (!input) return;
+  var button = input.nextElementSibling;
+  var icon = button.querySelector('i');
+  
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.className = 'ti ti-eye-off';
+  } else {
+    input.type = 'password';
+    icon.className = 'ti ti-eye';
+  }
+}
+
+function toggleAuthMode(mode) {
+  clearAlerts();
+  var loginForm = document.getElementById('login-form');
+  var signupForm = document.getElementById('signup-form');
+  var forgotForm = document.getElementById('forgot-password-form');
+  var googleBtn = document.querySelector('.google-btn');
+  var divider = document.querySelector('.login-divider');
+  var title = document.querySelector('.login-card h2');
+  var subtitle = document.querySelector('.login-subtitle');
+  var footerText = document.getElementById('login-footer-text');
+  
+  if (mode === 'signup') {
+    loginForm.style.display = 'none';
+    forgotForm.style.display = 'none';
+    signupForm.style.display = 'block';
+    googleBtn.style.display = 'flex';
+    divider.style.display = 'flex';
+    title.textContent = 'Crea tu cuenta';
+    subtitle.textContent = 'Regístrate para empezar a gestionar expedientes';
+    footerText.innerHTML = '¿Ya tienes una cuenta? <a href="#" onclick="toggleAuthMode(\'login\')">Inicia sesión</a>';
+  } else if (mode === 'forgot') {
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'none';
+    forgotForm.style.display = 'block';
+    googleBtn.style.display = 'none';
+    divider.style.display = 'none';
+    title.textContent = 'Recuperar contraseña';
+    subtitle.textContent = 'Introduce tu correo y te enviaremos un enlace';
+    footerText.innerHTML = '<a href="#" onclick="toggleAuthMode(\'login\')">Volver al inicio de sesión</a>';
+  } else {
+    signupForm.style.display = 'none';
+    forgotForm.style.display = 'none';
+    loginForm.style.display = 'block';
+    googleBtn.style.display = 'flex';
+    divider.style.display = 'flex';
+    title.textContent = 'Bienvenido de nuevo';
+    subtitle.textContent = 'Accede a la plataforma de mediación digital';
+    footerText.innerHTML = '¿No tienes cuenta? <a href="#" onclick="toggleAuthMode(\'signup\')">Regístrate</a>';
+  }
+}
+
+function showForgotPasswordForm() {
+  toggleAuthMode('forgot');
+}
+
+function setLoading(btn, isLoading) {
+  if (!btn) return;
+  var textEl = btn.querySelector('span');
+  if (isLoading) {
+    btn.disabled = true;
+    btn.dataset.originalText = textEl ? textEl.textContent : btn.innerHTML;
+    btn.innerHTML = '<i class="ti ti-loader" style="animation: spin 1.2s linear infinite; display: inline-block; margin-right: 6px;"></i> Cargando...';
+  } else {
+    btn.disabled = false;
+    btn.innerHTML = textEl ? '<span>' + btn.dataset.originalText + '</span>' : btn.dataset.originalText;
+  }
+}
+
+function showError(message) {
+  var errEl = document.getElementById('login-error-msg');
+  if (errEl) {
+    errEl.textContent = translateError(message);
+    errEl.style.display = 'block';
+  }
+}
+
+function showSuccess(message) {
+  var succEl = document.getElementById('login-success-msg');
+  if (succEl) {
+    succEl.textContent = message;
+    succEl.style.display = 'block';
+  }
+}
+
+function clearAlerts() {
+  var errEl = document.getElementById('login-error-msg');
+  var succEl = document.getElementById('login-success-msg');
+  if (errEl) errEl.style.display = 'none';
+  if (succEl) succEl.style.display = 'none';
+}
+
+function translateError(msg) {
+  if (!msg) return "Error desconocido";
+  if (msg.includes("Invalid login credentials")) {
+    return "Credenciales inválidas. Por favor, comprueba tu correo y contraseña.";
+  }
+  if (msg.includes("Email not confirmed")) {
+    return "El correo electrónico aún no ha sido confirmado.";
+  }
+  if (msg.includes("Password should be at least 6 characters")) {
+    return "La contraseña debe tener al menos 6 caracteres.";
+  }
+  if (msg.includes("User already registered")) {
+    return "Este correo ya está registrado.";
+  }
+  return msg;
+}
+
+async function handleEmailLogin(event) {
+  event.preventDefault();
+  clearAlerts();
+  
+  var email = document.getElementById('login-email').value;
+  var password = document.getElementById('login-password').value;
+  var submitBtn = document.querySelector('#login-form button[type="submit"]');
+  
+  setLoading(submitBtn, true);
+  
+  try {
+    var res = await _supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+    
+    if (res.error) {
+      showError(res.error.message);
+    } else {
+      showSuccess("¡Sesión iniciada con éxito! Redirigiendo...");
+    }
+  } catch (err) {
+    showError("Ocurrió un error inesperado: " + err.message);
+  } finally {
+    setLoading(submitBtn, false);
+  }
+}
+
+async function handleEmailSignUp(event) {
+  event.preventDefault();
+  clearAlerts();
+  
+  var name = document.getElementById('signup-name').value;
+  var email = document.getElementById('signup-email').value;
+  var password = document.getElementById('signup-password').value;
+  var submitBtn = document.querySelector('#signup-form button[type="submit"]');
+  
+  setLoading(submitBtn, true);
+  
+  try {
+    var res = await _supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          full_name: name
+        }
+      }
+    });
+    
+    if (res.error) {
+      showError(res.error.message);
+    } else {
+      if (res.data?.user && !res.data?.session) {
+        showSuccess("¡Registro exitoso! Por favor, verifica tu correo electrónico para confirmar la cuenta.");
+      } else {
+        showSuccess("¡Registro exitoso! Sesión iniciada.");
+      }
+    }
+  } catch (err) {
+    showError("Ocurrió un error inesperado: " + err.message);
+  } finally {
+    setLoading(submitBtn, false);
+  }
+}
+
+async function handleForgotPassword(event) {
+  event.preventDefault();
+  clearAlerts();
+  
+  var email = document.getElementById('forgot-email').value;
+  var submitBtn = document.querySelector('#forgot-password-form button[type="submit"]');
+  
+  setLoading(submitBtn, true);
+  
+  try {
+    var res = await _supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + window.location.pathname + '#reset-password'
+    });
+    
+    if (res.error) {
+      showError(res.error.message);
+    } else {
+      showSuccess("Se ha enviado un enlace de recuperación a tu correo electrónico.");
+    }
+  } catch (err) {
+    showError("Ocurrió un error inesperado: " + err.message);
+  } finally {
+    setLoading(submitBtn, false);
+  }
+}
+
+async function loginWithGoogle() {
+  clearAlerts();
+  try {
+    var res = await _supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: window.location.origin + window.location.pathname
+      }
+    });
+    
+    if (res.error) {
+      showError(res.error.message);
+    }
+  } catch (err) {
+    showError("Error al conectar con Google: " + err.message);
+  }
+}
+
+async function handleLogout(event) {
+  if (event) event.preventDefault();
+  try {
+    var res = await _supabase.auth.signOut();
+    if (res.error) {
+      alert("Error al cerrar sesión: " + res.error.message);
+    }
+  } catch (err) {
+    alert("Error inesperado al cerrar sesión: " + err.message);
+  }
+}
+
+function updateGreeting(user) {
+  var greetingTitle = document.getElementById('greeting-title');
+  var greetingSubtitle = document.getElementById('greeting-subtitle');
+  if (greetingTitle) {
+    var name = user.user_metadata?.full_name || user.email.split('@')[0];
+    greetingTitle.textContent = 'Hola, ' + name;
+  }
+  if (greetingSubtitle) {
+    greetingSubtitle.textContent = user.email;
+  }
+}
+
+// Escuchar cambios de sesión de Supabase
+_supabase.auth.onAuthStateChange(function(event, session) {
+  if (session && session.user) {
+    currentUser = session.user;
+    updateGreeting(session.user);
+    
+    // Obtener la vista activa. Si es login, redirigir a inicio.
+    var activeView = document.querySelector('.view.on');
+    var activeId = activeView ? activeView.id.replace('v-', '') : 'login';
+    
+    if (activeId === 'login') {
+      V('inicio');
+    } else {
+      V(activeId);
+    }
+  } else {
+    currentUser = null;
+    V('login');
+  }
+});
+
 initSync();
 </script>
 </body>
